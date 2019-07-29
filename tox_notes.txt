@@ -1,0 +1,14 @@
+tox
+tox.ini  (tox config file including env’s to check)
+tox  (test using config in tox.ini)
+tox -e py27  (test against python 2.7 env)
+tox -e pep8,pylint,py27  (test against given style guides and env’s)
+
+Test against the given file:
+tox -e py27 -- tests/unit/test_cleversafe_account_deleter.py
+
+Test against the given class:
+tox -e py27 -- tests/unit/test_cleversafe_account_deleter.py:TestCleversafeAccountDeleter
+
+Test against the given method:
+tox -e py27 -- account_deleter.py:TestCleversafeAccountDeleter.test_delete_ip_whitelist
