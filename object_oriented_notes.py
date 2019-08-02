@@ -23,29 +23,42 @@ p2.x = 3.0
 p2.y = 5.0
 
 # p1 and p2 contain the same coordinates, but are not the same object.
+# p1 and p2 have deep but not shallow equality.
 print p1 is p2 # False
+print id(p1) # 4585836984
+print id(p2) # 4585837128
 
 # Shallow equality only compares references, not contents of objects.
-# p1 and p2 are now aliases of the same object.
+# p1 and p2 here become aliases of the same object.
+# p1 and p2 have both deep and shallow equality.
 p1 = p2
 print p1 is p2 # True
-id(p1) # 40543152
-id(p2) # 40543152
+print id(p1) # 4585837128
+print id(p2) # 4585837128
+
+p1.x = 64
+print p2.x # 64
+print p1 is p2 # True
+print id(p1) # 4585837128
+print id(p2) # 4585837128
 
 # Deep equality is two different objects that contain the same data.
+# Of course, if the two variables refer to the same object (have shallow equality),
+# they have both shallow and deep equality.
 
 def samePoint(p1, p2):
     return (p1.x == p2.x) and (p1.y == p2.y)
 
 p1 = Point()
-p1.x = 3
-p1.y = 4
+p1.x = 7
+p1.y = 15
 p2 = Point()
-p2.x = 3
-p2.y = 4
-print samePoint(p1, p2) # True
+p2.x = 7
+p2.y = 15
 
-# Of course, if the two variables refer to the same object, they have both shallow and deep equality.
+# p1 and p2 have deep but not shallow equality.
+print p1 is p2 # False
+print samePoint(p1, p2) # True
 
 
 
