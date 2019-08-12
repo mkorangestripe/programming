@@ -27,3 +27,7 @@ virtualenv virt-cos-sdk (creates a virtual environment in the directory)
 Do the package installs with the virtualenv active.
 deactivate  (deactivate the virtual environment)
 Note, a leftover .Python file from virtualenv can cause problems when recreating the env.
+
+Python 3 Virtualenv:
+pipenv --python python3.7 (Creates a virtualenv and install necessary packages)
+pipenv shell (Start a shell with the virtualenv active)
