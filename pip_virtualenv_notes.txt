@@ -13,7 +13,9 @@ pip install --upgrade ipython (upgrade ipython)
 pip install --upgrade --force-reinstall ipython (upgrade or force-reinstall current version)
 pip uninstall ipython (uninstall ipython)
 pip install -r requirements.txt  (install required packages)
+
 setup.py (defines packages to install, references requirements.txt for requirements)
+__init__.py (required to make Python treat the directories as packages)
 
 Install a project in editable mode ("develop mode")
 Project appears to be installed, but is still editable from the src tree.
