@@ -1,5 +1,5 @@
-# __init__.py
-# This file is required to make Python treat the directories as packages.
+# Sets the python path before running the shell:
+# PYTHONPATH=./src ipython
 
 
 
