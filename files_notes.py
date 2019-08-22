@@ -1,4 +1,4 @@
-## Read and Write to files.
+# Read and Write to files.
 
 ## Print the file as one string.
 f = open('test.txt')
@@ -37,10 +37,19 @@ f.write('\nWinter snow\n')
 f.close()
 
 ## Append or write to a file at any byte. r+ opens for read and write.
-## w+ opens for read and write, but truncates any existing file first.
 f = open('test.txt', 'r+')
 f.seek(0,2) # Go to byte 0 from the EOF. f.seek(offset, from_what)
 f.write('\nSummer sun\n')
+f.close()
+
+# Write multiple lines to a file.
+# w+ opens for read and write, but truncates any existing file first.
+f = open('colors.txt', 'w+')
+f.writelines([
+    'red\n'
+    'green\n'
+    'blue\n'
+])
 f.close()
 
 
