@@ -1,14 +1,30 @@
-## platform
-## Access to underlying platform's identifying data.
+# platform
+# Access to underlying platform's identifying data.
 import platform
-platform.node() # network name, also socket.gethostname()
-platform.system() # operating system
-platform.dist() # distro
-platform.uname() # like uname -a
 
-## os
-## Operating System dependent functionality.
+platform.node() # same as socket.gethostname()
+# tester1.digitalriver.com
+platform.system()
+# 'Linux'
+platform.dist() # depricated in python 3.5
+# ('centos', '7.6.1810', 'Core')
+platform.platform()
+#'Linux-3.10.0-957.12.1.el7.x86_64-x86_64-with-centos-7.6.1810-Core'
+platform.uname() # similar to uname -a
+
+
+# os
+# Operating System dependent functionality.
 import os
+
+# Environment variables
+print os.environ['HOSTNAME']
+# tester1.digitalriver.com
+
+# If $STAGE is not set, use 'dev'.
+stage = os.getenv("STAGE", "dev")
+print stage
+# dev
 
 ## mkdir /tmp/dirA
 ## touch /tmp/dirA/file1.txt /tmp/dirA/file00.txt /tmp/dirA/file0.txt
@@ -30,12 +46,14 @@ os.makedirs("test/test_subdir1/test_subdir2")
 os.listdir("/tmp")
 os.listdir(os.getcwd())
 
+
 import shutil
 shutil.copytree("test", "test-copy")
 shutil.move("test-copy", "test-copy-moved")
 shutil.rmtree("test-copy-moved")
 shutil.rmtree("test")
 shutil.rmtree("/tmp/os_mod_explore")
+
 
 ## subprocess
 ## Spawn new processes, connect to their input/output/error pipes, and obtain their return codes.
@@ -67,6 +85,7 @@ def multi(*args):
         print out
 
 multi("df -h", "ls -l /tmp", "dmesg | tail")
+
 
 ## System specific parameters and functions.
 import sys
@@ -118,6 +137,7 @@ c1 = 'sky blue'
 c2 = 'brick red'
 color = input('Enter a color: ')
 
+
 ## Read and Write to files.
 
 ## Print the file as one string.
@@ -162,6 +182,7 @@ f = open('test.txt', 'r+')
 f.seek(0,2) # Go to byte 0 from the EOF. f.seek(offset, from_what)
 f.write('\nSummer sun\n')
 f.close()
+
 
 ## Simple serialization, saving data objects to disk.
 ## cPickle is an optimized version written in C, but does not support subclassing.
