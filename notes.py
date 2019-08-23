@@ -26,29 +26,6 @@ global num
 
 
 
-# try, except statements
-while True:
-    try:
-        x = int(raw_input("Please enter a number: "))
-        break
-    except ValueError:
-        print "Not a valid number.  Try again..."
-
-# Try, except statement with else and finally.
-import sys
-for arg in sys.argv[1:]:
-    try:
-        f = open(arg, 'r')
-    except IOError:
-        print 'cannot open', arg
-    else:
-        print arg, 'has', len(f.readlines()), 'lines'
-        f.close()
-    finally:
-        print "executing finally clause"
-
-
-
 # continue
 # The continue statement continues to the next iteration of the loop.
 # This can reduce the need for additional control statements (if/elif/else),
@@ -111,11 +88,6 @@ id(b) # 4340438192
 id(a[1]) # 4340168608
 id(b[1]) # 4340522520
 a == b # True
-
-
-
-# Raise a runtime error:
-raise RuntimeError('test for validate_request_parameters debug log')
 
 
 
