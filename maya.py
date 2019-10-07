@@ -1,25 +1,29 @@
-import maya.cmds
-import maya.cmds as cmds
-cmds.ls()
+from maya import cmds
 
-maya.cmds.sphere(radius=4)
-maya.cmds.polySphere()
+cmds.help("polySphere") # help on polySphere command
 
-maya.cmds.polyCube()
-maya.cmds.polyCube(width=2,height=3)
+# List items
+cmds.ls() # list itmes in the scene
+shapes = cmds.ls(shapes=True) # assign all shapes in scene to a variable
+selection1 = cmds.ls(selection=True) # assign the current selected itmes to a variable
 
-cmds.help("polySphere")
+# Selection
+cmds.select(clear=True) # clear the current selected items
+sphere1 = cmds.select("*pSphere1", add=True) # assign pSphere1 to a variable
 
-maya.cmds.polySphere("polySphere1", query=True, radius=True)
+# Nurbs
+cmds.sphere(radius=3) # create a nurbs sphere
 
-maya.cmds.polySphere("polySphere1", edit=True, radius=5)
-cmds.ls(shapes=True)
-cmds.ls(selection=True)
+# polyCube
+cube1 = cmds.polyCube(width=2,height=3) # create a polyCube
+cubeShape1 = cube1[0] # assign the geometry to a varaible
 
-cmds.select(clear=True)
-cmds.select("*pSphere1", add=True)
+# polySphere
+cmds.polySphere(radius=3) # create a polySphere
+sphere1_radius = cmds.polySphere("polySphere1", query=True, radius=True) # assign its radius to a variable
+cmds.polySphere("polySphere1", edit=True, radius=5) # change the radius size
 
-
+# Create ten posts in a row:
 Z=-1
 for i in range(-1,9,2):
     cmds.polyCube(width=0.25,depth=0.25,height=10)
@@ -28,5 +32,5 @@ for i in range(-1,9,2):
     cmds.polyCube(width=0.25,depth=0.25,height=10)
     cmds.move(0,5,-Z)
 
-
+# Select all pCube* itmes:
 cmds.select("pCube*", add=True)
