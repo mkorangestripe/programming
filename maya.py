@@ -1,17 +1,30 @@
 from maya import cmds
 
+# Reload an imported module:
+import objectRenamer as ore
+reload(ore)
+
 cmds.help("polySphere") # help on polySphere command
 
 # List items
-cmds.ls() # list all itmes
-cmds.ls(shapes=True) # list all shapes
-cmds.ls(selection=True) # list the current selected itmes
+cmds.ls() # list objects in the scene
+cmds.ls(long=True) # list objects in the scene, long format
+cmds.ls(shapes=True) # list shape objects
+cmds.ls(selection=True) # list objects that are currently selected
+
+# object info
+cmds.listRelatives("pSphere1") # list related objects
+# If type if None, then create an empty list:
+children = cmds.listRelatives("pSphereShape1", children=True, fullPath=True) or []
+cmds.objectType("pSphere1") # get object type
 
 # Selection
-cmds.select(clear=True) # clear the current selected items
+cmds.select(clear=True) # clear the current selection
 cmds.select("pCube1") # select pCube1
 cmds.select("pSphere*", add=True) # add all pSphere* itmes to the current selection
 cmds.select(cmds.ls(shapes=True)) # select all shapes
+
+cmds.rename("pSphere1", "ball1") # rename object
 
 # Nurbs
 cmds.sphere(radius=3) # create a nurbs sphere
