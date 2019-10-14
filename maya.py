@@ -18,6 +18,10 @@ cmds.listRelatives("pSphere1") # list related objects
 children = cmds.listRelatives("pSphereShape1", children=True, fullPath=True) or []
 cmds.objectType("pSphere1") # get object type
 
+cmds.listAttr('pPipe1') # list attributes on the object
+cmds.getAttr('polyExtrudeFace1.inputComponents') # get attributes, a list of faces here
+
+
 # Selection
 cmds.select(clear=True) # clear the current selection
 cmds.select("pCube1") # select pCube1
