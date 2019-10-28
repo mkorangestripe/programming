@@ -71,7 +71,7 @@ no_remainders = []
 def filter_recur(f,lx):
     if len(lx) != 0:
         i, lx = lx[0], lx[1:]
-        if check_remainder(i):
+        if f(i):
             no_remainders.append(i)
         filter_recur(f, lx)
     return no_remainders
