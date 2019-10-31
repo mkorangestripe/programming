@@ -1,4 +1,4 @@
-## System specific parameters and functions.
+# System specific parameters and functions
 import sys
 print sys.argv # all command line arguments.
 print sys.argv[0] # the script itself.
@@ -6,7 +6,8 @@ print sys.argv[1] # first command line argument passed to the script.
 sys.exit()
 
 
-## Argument and options.
+# Argument and options
+
 import argparse
 
 parser = argparse.ArgumentParser()
@@ -25,25 +26,41 @@ else:
     print answer
 
 
-## raw_input a string.
+# User input
+
+# raw_input a string.
 s = raw_input('Enter a number: ')
-## raw_input an int.
+# raw_input an int.
 n = int(raw_input('Enter a number: '))
 type(s) # <type 'str'>
 type(n) # <type 'int'>
 
-## input() - python 2.x
-## Equivalent to eval(raw_input(prompt))
-## Consider using the raw_input() function for general input from users.
+# input() - python 2.x
+# Equivalent to eval(raw_input(prompt))
+# Consider using the raw_input() function for general input from users.
 
-## input a string.
+# Input a string.
 s = str(input('Enter a number: '))
-## input an int.
+# Input an int.
 n = input('Enter a number: ')
 type(s) # <type 'str'>
 type(n) # <type 'int'>
 
-## input() evaluates the input.
+# input() evaluates the input.
 c1 = 'sky blue'
 c2 = 'brick red'
 color = input('Enter a color: ')
+
+
+# Signal handling
+
+import signal
+import sys
+
+def signal_handler(signal, frame):
+    print('You pressed Ctrl+C!')
+    sys.exit(0)
+
+signal.signal(signal.SIGINT, signal_handler)
+print('Press Ctrl+C')
+signal.pause()
