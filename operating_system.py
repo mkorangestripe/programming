@@ -46,6 +46,22 @@ os.makedirs("test/test_subdir1/test_subdir2")
 os.listdir("/tmp")
 os.listdir(os.getcwd())
 
+import os
+import random
+
+def create_test_file(filename):
+    """Create randomly sized file between 1 and 16M"""
+    filesize = random.randint(1,16)
+    with open(filename, 'wb') as f:
+        f.seek(1024 * 1024 * filesize)
+        f.write('0')
+    stat = os.stat(filename)
+    size_in_M = stat.st_size / 1024 / 1024
+    print filename, str(size_in_M) + 'M'
+
+create_test_file('file1.txt')
+# os.remove('file1.txt')
+
 
 import shutil
 shutil.copytree("test", "test-copy")
