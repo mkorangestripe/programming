@@ -76,18 +76,3 @@ def fibonacci(n):
 # If a Fibonacci number is divided by its immediate predecessor in the sequence, the quotient approximates φ.
 # These approximations are alternately lower and higher than φ, and converge on φ as the Fibonacci numbers increase.
 # The golden spiral is a logarithmic spiral whose growth factor is φ, the golden ratio.
-
-
-
-
-# Standard deviation
-# A measure that is used to quantify the amount of variation or dispersion of a set of data values.
-# A low standard deviation indicates that the data points tend to be close to the mean (also called the expected value) of the set...
-# while a high standard deviation indicates that the data points are spread out over a wider range of values.
-# Represented by the lower case Greek letter sigma σ for the population standard deviation or the Latin letter s for the sample standard deviation.
-
-# For example a normal distribution (or bell-shaped curve) where each band has a width of 1 standard deviation.
-
-# Gaussian distribution, another term for normal distribution.
-# Uniform distribution, sometimes also known as a rectangular distribution, is a distribution that has constant probability.
-# Exponential distribution, looks like an arc when graphed.
