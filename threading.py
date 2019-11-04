@@ -53,7 +53,7 @@ print "threads finished...exiting"
 
 # Ping without using threading.
 # Example from Python for Unix and Linux System Administration, page 302.
-# This seems to run in only one process according to the following command.
+# This seems to run in only one process according to the following command.  Filename ping_no_thread.py
 # while true; do ps -ef | grep ping_ | grep -v grep; sleep 1; done
 import subprocess
 import time
