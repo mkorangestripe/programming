@@ -29,6 +29,49 @@ finally:
     print 'HTTP connection closed successfully'
 
 
+# Object Oriented example of an http status code checker.
+import sys
+import socket
+import httplib
+
+host = sys.argv[1]
+port = 80
+resource ='/'
+
+class Netlayer(object):
+
+    def __init__(self, host, port, resource):
+        self.host = host
+        self.port = port
+        self.resource = resource
+
+    def get_hostnames(self):
+        """Check that the given hostname or IP address is valid and return the fqdn"""
+        try:
+            fqdn = socket.gethostbyaddr(self.host)[0]
+        except socket.error, e:
+            print 'Not a valid IP or hostname: %s' % self.host
+            return 'invalid'
+        return fqdn
+
+    def get_http(self):
+        """Conect and get the HTTP response status codes."""
+        try:
+            conn = httplib.HTTPConnection(host, port, timeout=8)
+            conn.request('HEAD', resource)
+            response = conn.getresponse()
+            print '%s  status code: %s %s' % (host, response.status, response.reason)
+        except socket.error, e:
+            print '%s: %s' % (host, e)
+        finally:
+            conn.close()
+
+f = Netlayer(host, port, resource)
+print f.get_hostnames()
+f.get_http()
+
+
+
 # urllib
 import urllib
 # This is similar to: wget 192.168.1.112
