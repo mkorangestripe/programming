@@ -1,6 +1,6 @@
+# Connect to the mysql database, run query, and print all rows.
 import MySQLdb
 
-# Connect to the mysql database, run query, and print all rows.
 db = MySQLdb.connect('localhost', 'root', '1234asdf', 'animalia');
 cursor = db.cursor()
 cursor.execute("SELECT * from animalia")
