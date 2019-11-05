@@ -76,8 +76,8 @@ class TestCleversafeAccountDeleter(unittest.TestCase):
 
     def test_attempt_account_deletion(self):
         url = 'https://{0}:{1}/accounts/{2}'.format(self.endpoint,
-                                                                           self.port,
-                                                                           self.account_id)
+                                                    self.port,
+                                                    self.account_id)
 
        with requests_mock.Mocker() as m, \
             mock.patch(DELETER_PATH + '.logger') as log_mock:
