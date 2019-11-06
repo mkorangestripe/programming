@@ -51,6 +51,11 @@ c1 = 'sky blue'
 c2 = 'brick red'
 color = input('Enter a color: ')
 
+# Request a number until given one greater than 2.
+max = 0
+while max < 3:
+    max = int(raw_input("Enter a number greater than 2: "))
+
 
 # Signal handling
 
