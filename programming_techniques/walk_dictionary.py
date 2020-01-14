@@ -40,3 +40,9 @@ def walk_dict(iterobj):
             print iterobj
 
 walk_dict(pipeline)
+
+# Output
+# cdee37ba-8d76-456b-9e13-4d235bcf0b3d
+# d0cdf8b2-8cd8-4fb7-8461-2275a4d88104
+# 938983bd-e7ca-4bd4-9134-a6e7d1dd9496
+# a76f720d-6ab3-4056-8c19-460f4b3cc30c
