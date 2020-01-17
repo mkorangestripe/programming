@@ -1,5 +1,4 @@
-# Successive refinement
-# http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-00sc-introduction-to-computer-science-and-programming-spring-2011/unit-1/lecture-4-machine-interpretation-of-a-program/
+# Example from MIT OCW 600sc
 # Estimating the square root of 'x'
 
 x = 25

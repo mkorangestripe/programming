@@ -1,3 +1,4 @@
+# Example from MIT OCW
 # Scaling data to fit between 0 and 1.
 
 # Number of kinds of teeth
