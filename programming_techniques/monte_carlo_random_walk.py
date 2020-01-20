@@ -33,6 +33,7 @@ print
 number_of_walks = 10000
 # number_of_walks = 20000
 
+# Monte Carlo simulation
 for walk_length in range(1,31):
     no_transport = 0  # number of walks 4 or fewer blocks from home
     for i in range(number_of_walks):
