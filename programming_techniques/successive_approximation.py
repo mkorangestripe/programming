@@ -1,6 +1,26 @@
 # Example from MIT OCW 600sc
 # Estimating the square root of 'x'
+# This is an example of successive approximation using the
+# guess-and-check method (exhaustive enumeration) and the bisection method.
+# With larger numbers like 2500, the number of guesses is less than half
+# than without using the bisection method.
 
+
+# Simple guess-and-check
+x = 2500
+numGuesses = 0
+upper = x / 2
+for i in range(0, upper):
+    numGuesses += 1
+    if i**2 == x:
+        print 'numGuesses =', numGuesses
+        break
+
+# numGuesses = 51
+
+
+# Successive approximation using guess-and-check and bisection methods.
+# For 'x = 2500', numGuesses = 20
 x = 25
 epsilon = 0.01
 numGuesses = 0
