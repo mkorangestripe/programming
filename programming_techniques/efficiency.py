@@ -49,3 +49,18 @@ isSubset(testSet1, testSet)
 isSubset(testSet2, testSet)
 # False
 
+# Bisection search - linear O(n)
+# This is the less efficient example of the bisection search - logarithmic O(log n).
+# It makes copies of the list instead of using pointers to the list elements.
+
+def bisect_search1(L, e):
+    if L == []:
+        return False
+    elif len(L) == 1:
+        return L[0] == e
+    else:
+        half = len(L)//2
+        if L[half] > e:
+            return bisect_search1(L[:half], e)
+        else:
+            return bisect_search1(L[half:], e)
