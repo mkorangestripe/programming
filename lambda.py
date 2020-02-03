@@ -5,17 +5,14 @@ full_name = lambda fn, ln: fn.strip().title() + " " + ln.strip().title()
 print full_name("  leonhard", "EULER")
 # Leonhard Euler
 
-# Sort list by last name:
-scifi_authors = ["Isaac Asimov", "Ray Bradbury", "H. G. Wells"]
 
-# Help on built-in function sort:
-help(scifi_authors.sort)
-# sort(...) method of builtins.list instance
-#     L.sort(key=None, reverse=False) -> None -- stable sort *IN PLACE*
+# Sort list by last name:
+scifi_authors = ["Ray Bradbury", "Isaac Asimov", "H. G. Wells"]
 
 scifi_authors.sort(key=lambda name: name.split(" ")[-1].lower())
 print scifi_authors
 # ['Isaac Asimov', 'Ray Bradbury', 'H. G. Wells']
+
 
 # Quadratic function:
 def build_quadric_function(a, b, c):
