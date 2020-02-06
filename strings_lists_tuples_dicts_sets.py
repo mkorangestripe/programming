@@ -3,8 +3,6 @@
 import string
 print string.ascii_lowercase #  abcdefghijklmnopqrstuvwxyz
 print string.ascii_uppercase # ABCDEFGHIJKLMNOPQRSTUVWXYZ
-string.lower('ABC') # abc
-string.upper('abc') # ABC
 
 text1 = '123\nABC'
 text1.split('\n') # ['123', 'ABC']
