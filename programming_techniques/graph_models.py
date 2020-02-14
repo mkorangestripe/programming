@@ -106,6 +106,16 @@ def buildCityGraph(graphType):
     return g
 
 
+def printPath(path):
+    """Assumes path is a list of nodes"""
+    result = ''
+    for i in range(len(path)):
+        result = result + str(path[i])
+        if i != len(path) - 1:
+            result = result + '->'
+    return result
+
+
 # Build graph of cities example
 country = buildCityGraph(Digraph)
 print(country)
@@ -138,9 +148,10 @@ printPath(path1)
 
 
 # Depth First Search
-# For example, move down the left branches until either finding
+# Move down the left branches until either finding
 # the destination or a dead end.  If dead end, backtrack
 # to the last node with multiple paths and try the next option.
+# Recursion is key to continually moving down the left branches.
 # 'start' is node that changes from iteration to iteration.
 # 'shortest' keeps track of the shortest path, but the search doesn't end
 # until all paths are explored.
@@ -165,8 +176,7 @@ def DFS(graph, start, end, path, shortest, toPrint = False):
     return shortest
 
 
-# Wrapper function to provide abstraction
-# Test Depth First Search
+# Depth First Search wrapper function
 def shortestPath(graph, start, end, toPrint = False):
     """Assumes graph is a Digraph; start and end are nodes
        Returns a shortest path from start to end in graph"""
@@ -210,4 +220,94 @@ testSP('Boston', 'Phoenix')
 # Current DFS path: Boston->New York->Chicago->Denver->Phoenix
 # Already visited New York
 # Current DFS path: Boston->New York->Chicago->Phoenix
+# Shortest path from Boston to Phoenix is Boston->New York->Chicago->Phoenix
+
+
+printQueue = True
+
+# Breadth First Search
+# Consider all the edges that leave a node.
+# Follow first edge and check if it ends at the destination.
+# If not, check the next edge and repeat.
+# Continually removing the oldest element (path) in the pathQueue
+# and re-adding this path with an extension to the next node if available.
+# Append an extended path for each of the children nodes.
+# Because this is BFS, the first successful path found is the shortest.
+def BFS(graph, start, end, toPrint=False):
+    """Assumes graph is a Digraph; start and end are nodes
+       Returns a shortest path from start to end in graph"""
+    initPath = [start]
+    pathQueue = [initPath]
+    while len(pathQueue) != 0:
+        # Get and remove oldest element in pathQueue
+        if printQueue:
+            print('Queue:', len(pathQueue))
+            for p in pathQueue:
+                print(printPath(p))
+        tmpPath = pathQueue.pop(0) # remove the oldest path in the pathQueue
+        if toPrint:
+            print('Current BFS path:', printPath(tmpPath))
+            print()
+        lastNode = tmpPath[-1] # the last node (city) from the previously removed path in the pathQueue
+        if lastNode == end:
+            return tmpPath # first successful path is the shortest
+        for nextNode in graph.childrenOf(lastNode):
+            if nextNode not in tmpPath: # tmpPath was the 1st path in the pathQueue before being removed
+                newPath = tmpPath + [nextNode] # The old 1st path and nextNode are combined and...
+                pathQueue.append(newPath) # re-added to the pathQueue
+    return None
+
+
+# Breadth First Search wrapper function
+def shortestPath(graph, start, end, toPrint=False):
+    """Assumes graph is a Digraph; start and end are nodes
+       Returns a shortest path from start to end in graph"""
+    return BFS(graph, start, end, toPrint)
+
+
+testSP('Boston', 'Phoenix')
+# Queue: 1
+# Boston
+# Current BFS path: Boston
+
+# Queue: 2
+# Boston->Providence
+# Boston->New York
+# Current BFS path: Boston->Providence
+
+# Queue: 2
+# Boston->New York
+# Boston->Providence->New York
+# Current BFS path: Boston->New York
+
+# Queue: 2
+# Boston->Providence->New York
+# Boston->New York->Chicago
+# Current BFS path: Boston->Providence->New York
+
+# Queue: 2
+# Boston->New York->Chicago
+# Boston->Providence->New York->Chicago
+# Current BFS path: Boston->New York->Chicago
+
+# Queue: 3
+# Boston->Providence->New York->Chicago
+# Boston->New York->Chicago->Denver
+# Boston->New York->Chicago->Phoenix  <-- The shortest path found here, but 3rd in queue
+# Current BFS path: Boston->Providence->New York->Chicago
+
+# Queue: 4
+# Boston->New York->Chicago->Denver
+# Boston->New York->Chicago->Phoenix  <-- Now 2nd in queue
+# Boston->Providence->New York->Chicago->Denver
+# Boston->Providence->New York->Chicago->Phoenix
+# Current BFS path: Boston->New York->Chicago->Denver
+
+# Queue: 4
+# Boston->New York->Chicago->Phoenix  <-- Now 1st in queue
+# Boston->Providence->New York->Chicago->Denver
+# Boston->Providence->New York->Chicago->Phoenix
+# Boston->New York->Chicago->Denver->Phoenix
+# Current BFS path: Boston->New York->Chicago->Phoenix
+
 # Shortest path from Boston to Phoenix is Boston->New York->Chicago->Phoenix
