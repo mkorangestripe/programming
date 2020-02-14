@@ -1,9 +1,9 @@
-# Example from MIT OCW 600sc
 # Estimating the square root of 'x'
 # This is an example of successive approximation using the
 # guess-and-check method (exhaustive enumeration) and the bisection method.
 # With larger numbers like 2500, the number of guesses is less than half
 # than without using the bisection method.
+# Examples from MIT OCW
 
 
 # Simple guess-and-check

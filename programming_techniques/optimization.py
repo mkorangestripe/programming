@@ -1,5 +1,5 @@
-# Examples from MIT OCW
 # 0/1 Knapsack problem
+# Examples from MIT OCW
 
 # Brute force algorithm of generating all combinations might take too long.
 # Greedy algorithm doesn't always yield the best solution and doesn't show how close the approximation is.

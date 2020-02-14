@@ -1,3 +1,6 @@
+# Monte Carlo Yahtzee simulation
+# Examples from MIT OWC and other soures
+
 import random
 
 # Coin flip probability examples:

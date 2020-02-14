@@ -1,3 +1,6 @@
+# Orders of Growth of algorithms and Time Complexity
+# Examples from MIT OWC
+
 # Order of Growth
 # Describes the increase in time relative to the size of the input
 # Ignore constants and multiplicative factors

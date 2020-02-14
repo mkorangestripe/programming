@@ -1,4 +1,5 @@
-# Examples from MIT OCW 60001
+# Searching and Sorting and Time Complexity
+# Examples from MIT OCW
 
 # Linear search (unsorted list)
 # An unsorted list, at worst must look through all elements.

@@ -1,3 +1,4 @@
+# Random Walk and Monte Carlo simulation
 # Examples from Socratica
 import random
 
