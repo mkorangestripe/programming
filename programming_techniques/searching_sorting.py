@@ -141,25 +141,26 @@ print(testList)
 # O(n log(n)) where n is len(L)
 
 def merge(left, right):
+    """Merge sublists"""
     result = []
     i, j = 0, 0
     while i < len(left) and j < len(right): # this makes the initial comparisons between the right and left lists
-        if left[i] < right[j]: # but stops when one list is exhausted
+        if left[i] < right[j]: # but stops when one list is exhausted.
             result.append(left[i])
             i += 1
         else:
             result.append(right[j])
             j += 1
-    while (i < len(left)): # if anything is left in the left list, append it to result
-        result.append(left[i])
-        i += 1
-    while (j < len(right)): # if anything is left in the right list, append it to result
-        result.append(right[j])
-        j += 1
+    if i < len(left): # if the left sublist has remaining elements, append them to result
+        result = result + left[i:]
+    if j < len(right): # if the right sublist has remaining elements, append them to result
+        result = result + right[j:]
     print('merge: ' + str(left) + '&' + str(right) + ' to ' + str(result))
     return result
 
+
 def merge_sort(L):
+    """Divide-and-conquer depth-first function"""
     print('merge sort: ' + str(L))
     if len(L) < 2:
         return L[:]
@@ -168,6 +169,7 @@ def merge_sort(L):
         left = merge_sort(L[:middle])
         right = merge_sort(L[middle:])
         return merge(left, right)
+
 
 testList = [1, 3, 5, 7, 2, 6, 25, 18, 13]
 
