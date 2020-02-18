@@ -134,25 +134,26 @@ print(testList)
 
 # Merge sort
 # Uses a divide-and-conquer approach.
-# Split the list in half successively until sublists have only one element.
-# Merge pairs of sublists into sorted lists by comparing the first element of each.
+# This also uses a depth-first approach by working down the left branch...
+# until the two farthest left elements are separated into two sublists each with the one element.
+# The pairs of sublists are merged into sorted lists by comparing the first element (remaining) of each.
 # This way the sublists will always be sorted.
 # O(n log(n)) where n is len(L)
 
 def merge(left, right):
     result = []
     i, j = 0, 0
-    while i < len(left) and j < len(right):
-        if left[i] < right[j]:
+    while i < len(left) and j < len(right): # this makes the initial comparisons between the right and left lists
+        if left[i] < right[j]: # but stops when one list is exhausted
             result.append(left[i])
             i += 1
         else:
             result.append(right[j])
             j += 1
-    while (i < len(left)):
+    while (i < len(left)): # if anything is left in the left list, append it to result
         result.append(left[i])
         i += 1
-    while (j < len(right)):
+    while (j < len(right)): # if anything is left in the right list, append it to result
         result.append(right[j])
         j += 1
     print('merge: ' + str(left) + '&' + str(right) + ' to ' + str(result))
