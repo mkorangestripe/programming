@@ -1,5 +1,7 @@
 # Searching and Sorting and Time Complexity
 # Examples from MIT OCW
+# Examples use sorted and unsorted lists.
+# Sorting first can be more efficient, but only when doing multiple searches.
 
 # Linear search (unsorted list)
 # An unsorted list, at worst must look through all elements.
@@ -26,34 +28,6 @@ def search(L, e):
         if L[i] > e:
             return False
     return False
-
-
-# Bisection search
-# List must be sorted
-# Continuously halves the list range to be search.
-# O(log n) - reduces the problem by a factor of 2 on each step.
-
-def bisect_search2(L, e):
-    def bisect_search_helper(L, e, low, high):
-        if high == low:
-            return L[low] == e
-        mid = (low + high)//2
-        if L[mid] == e:
-            return True
-        elif L[mid] > e:
-            if low == mid: # nothing left to search
-                return False
-            else:
-                return bisect_search_helper(L, e, low, mid -1)
-        else:
-            return bisect_search_helper(L, e, mid + 1, high)
-    if len(L) == 0:
-        return False
-    else:
-        return bisect_search_helper(L, e, 0, len(L) - 1)
-
-
-# Sorting first can be more efficient when doing multiple searches.
 
 
 # Bogo aka Monkey sort
