@@ -39,7 +39,7 @@ def check_remainder(x):
 def filter_iter(f,lx):
     no_remainder = []
     for i in lx:
-        if check_remainder(i):
+        if f(i):
             no_remainder.append(i)
     return no_remainder
 
