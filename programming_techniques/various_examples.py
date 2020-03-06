@@ -26,11 +26,11 @@ vm_schedule_count(schedule3) # 2
 vm_schedule_count(schedule4) # 0
 
 
+
 # Two Sum
 # Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 # You may assume that each input would have exactly one solution, and you may not use the same element twice.
 # Example from LeetCode
-
 
 # Brute Force
 # Time complexity: O(n^2)
@@ -113,3 +113,44 @@ nums = [3,2,4]
 target = 6
 onepasshash = OnePassHash()
 onepasshash.twoSum(nums, target)
+
+
+
+# Longest Substring Without Repeating Characters
+# Given a string, find the length of the longest substring without repeating (duplicate) characters.
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        i, j = 0, 0
+        longest_substring = s[i:j]
+
+        while j < len(s):
+            # print(s[j], s[i:j], longest_substring) # testing
+            if s[j] not in s[i:j]:
+                j += 1
+            else:
+                for k in s[i:j]:
+                    i += 1
+                    # print('Searching substring:', k) # testing
+                    if k == s[j]:
+                        break
+            if len(s[i:j]) > len(longest_substring):
+                longest_substring = s[i:j]
+            # print(i, j) # testing
+
+        # print(longest_substring) # testing
+        return len(longest_substring)
+
+
+# example runtime: 144 ms
+# example memory: 13 MB
+
+s1 = "dvdf" # 3
+s2 = "aab" # 2
+s3 = "bbtablud" # 6
+s4 = "pwwkew" # 3
+s5 = "dvdf" # 3
+s6 = "pwwkewabcdefghijk" # 12
+
+solution = Solution()
+solution.lengthOfLongestSubstring(s1)
