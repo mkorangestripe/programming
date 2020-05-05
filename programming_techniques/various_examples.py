@@ -358,3 +358,55 @@ def solution(a):
 print(solution(A1))  # 5
 print(solution(A2))  # 4
 print(solution(A3))  # 1
+
+
+
+# Remove Duplicates from Sorted Array
+# Modifying the input array in-place with O(1) extra memory.
+class Solution(object):
+    def removeDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if len(nums) == 0:
+            return 0
+
+        if len(nums) == 1:
+            return 1
+
+        for num in nums:
+            print(num)  # testing
+            print('OUTER', nums)  # testing
+            nums_length_outer = len(nums)
+            i = 0
+            while i < len(nums):
+                print(i)  # testing
+                if nums[i] == nums[i - 1]:
+                    nums.pop(i)
+                    i += 1
+                else:
+                    i += 1
+                print('inner', nums)  # testing
+            print()  # testing
+            print(nums_length_outer, len(nums))  # testing
+            if nums_length_outer == len(nums):
+                break
+
+        # return len(nums)
+        return len(nums), nums  # testing
+
+
+nums = [0,0,1,1,1,2,2,3,3,4]
+# nums = []
+# nums = [1]
+# nums = [1,1]
+# nums = [1,1,1]
+# nums = [1,1,1,1]
+
+solution = Solution()
+length = solution.removeDuplicates(nums)
+print(length)
+
+# Sample runtime: 104 ms
+# Sample memory: 15.5 MB
