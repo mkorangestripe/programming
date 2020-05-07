@@ -83,8 +83,8 @@ class Solution(object):
 
 solution = Solution()
 print(solution.longestCommonPrefix(strs1))  # 'fl'
-print(solution.longestCommonPrefix(strs1))  # ''
-print(solution.longestCommonPrefix(strs1))  # 'lee'
+print(solution.longestCommonPrefix(strs2))  # ''
+print(solution.longestCommonPrefix(strs3))  # 'lee'
 
 # Example runtime: 12 ms
 # Example memory: 12 MB
