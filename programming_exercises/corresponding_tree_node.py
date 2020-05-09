@@ -71,12 +71,11 @@ class Solution:
             return cloned
 
         left = self.getTargetCopy(original.left, cloned.left, target)
-        right = self.getTargetCopy(original.right, cloned.right, target)
 
-        if left:
+        if left is not None:
             return left
-        if right:
-            return right
+
+        return self.getTargetCopy(original.right, cloned.right, target)
 
 
 solution = Solution()
@@ -84,3 +83,5 @@ target_clone1 = solution.getTargetCopy(treenode1, treenode_clone1, target1)
 target_clone2 = solution.getTargetCopy(treenode2, treenode_clone2, target2)
 print(target_clone1.val)  # 3
 print(target_clone2.val)  # 13
+# Runtime: 644 ms
+# Memory Usage: 23.4 MB
