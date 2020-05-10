@@ -1,1 +1,1 @@
-### Python notes and examples
+## DevOps and a variety of things Python
