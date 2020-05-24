@@ -2,7 +2,6 @@
 # Gavin Purcell
 
 # To do:
-# classes to share variables
 # unit test
 
 """
@@ -22,6 +21,78 @@ class Color:
     green = '\033[92m'
     red = '\033[91m'
     end = '\033[0m'
+
+
+class PingScan(object):
+
+    def __init__(self, net_address):
+        self.net_address = net_address
+
+    def generate_ip_addrs(self):
+        """Generate the list of IP addresses to ping."""
+        try:
+            ip_net = ipaddress.ip_network(self.net_address)
+        except ValueError as e:
+            print(e)
+            sys.exit(1)
+        self.ip_list = list(ip_net.hosts())
+
+    def run_ping_cmd(self, ip):
+        """Run the ping command."""
+        ping_cmd = 'ping -w %s %s' % (args.deadline, ip)
+        return subprocess.Popen(ping_cmd,
+                                shell=True,
+                                stdout=subprocess.PIPE)
+
+    def create_ping_processes(self):
+        """Create a ping subprocesses per IP address."""
+        self.jobs = []
+        self.response_by_ip = {}
+        print('Starting ping of', self.net_address)
+        for ip in self.ip_list:
+            ip = str(ip)
+            self.response_by_ip[ip] = ''
+            ping_process = self.run_ping_cmd(ip)
+            self.jobs.append((ping_process, ip))
+
+    def get_return_code_response(self):
+        """Wait for the ping subprocesses to finish and get the return code and response."""
+        for job in self.jobs:
+            process, ip = job[0], job[1]
+            process.wait()
+            return_code = process.returncode
+            response = process.stdout.readlines()
+            self.response_by_ip[ip] = (return_code, response)
+
+    def print_ip_group(self, requested_return_code):
+        """Print group of IPs, either up or down."""
+        for ip in self.ip_list:
+            ip = str(ip)
+            ret_code = self.response_by_ip[ip][0]
+            if ret_code == requested_return_code:
+                print(ip)
+        print()
+
+    def print_ips_state(self):
+        """Print all IPs in CIDR range with up/down state."""
+        for ip in self.ip_list:
+            ip = str(ip)
+            ret_code = self.response_by_ip[ip][0]
+            if ret_code == 0:
+                print('%s is %sup%s' % (ip, Color.green, Color.end))
+            else:
+                print('%s is %sdown%s' % (ip, Color.red, Color.end))
+        print()
+
+    def print_stdout(self):
+        """Print stdout if verbose argument is given."""
+        for ip in self.ip_list:
+            ip = str(ip)
+            print(ip)
+            stdout = self.response_by_ip[ip][1]
+            for line in stdout:
+                print(line.strip().decode('utf-8'))
+            print()
 
 
 def _get_argparser():
@@ -47,81 +118,6 @@ def _get_argparser():
     return args
 
 
-def run_ping_cmd(ip, ping_deadline):
-    """Run the ping command."""
-    ping_cmd = 'ping -w %s %s' % (ping_deadline, ip)
-    return subprocess.Popen(ping_cmd,
-                            shell=True,
-                            stdout=subprocess.PIPE)
-
-
-def print_ip_group(ips, requested_return_code, response_by_ip):
-    """Print group of IPs, either up or down."""
-    for ip in ips:
-        ip = str(ip)
-        ret_code = response_by_ip[ip][0]
-        if ret_code == requested_return_code:
-            print(ip)
-    print()
-
-
-def print_ips_state(ips, response_by_ip):
-    """Print all IPs in CIDR range with up/down state."""
-    for ip in ips:
-        ip = str(ip)
-        ret_code = response_by_ip[ip][0]
-        if ret_code == 0:
-            print('%s is %sup%s' % (ip, Color.green, Color.end))
-        else:
-            print('%s is %sdown%s' % (ip, Color.red, Color.end))
-    print()
-
-
-def print_stdout(ips, response_by_ip):
-    """Print stdout if verbose argument is given."""
-    for ip in ips:
-        ip = str(ip)
-        print(ip)
-        stdout = response_by_ip[ip][1]
-        for line in stdout:
-            print(line.strip().decode('utf-8'))
-        print()
-
-
-def generate_ip_addrs(net_address):
-    """Generate the list of IP addresses to ping."""
-    try:
-        ip_net = ipaddress.ip_network(net_address)
-    except ValueError as e:
-        print(e)
-        sys.exit(1)
-    return list(ip_net.hosts())
-
-
-def create_ping_processes(net_address, ip_list):
-    """Create a ping subprocesses per IP address."""
-    jobs = []
-    response_by_ip = {}
-    print('Starting ping of', net_address)
-    for ip in ip_list:
-        ip = str(ip)
-        response_by_ip[ip] = []
-        ping_process = run_ping_cmd(ip, args.deadline)
-        jobs.append((ping_process, ip))
-    return jobs, response_by_ip
-
-
-def get_return_code_response(jobs, response_by_ip):
-    """Wait for the ping subprocesses to finish and get the return code and response."""
-    for job in jobs:
-        process, ip = job[0], job[1]
-        process.wait()
-        return_code = process.returncode
-        response = process.stdout.readlines()
-        response_by_ip[ip] = (return_code, response)
-    return response_by_ip
-
-
 if __name__ == '__main__':
 
     args = _get_argparser()
@@ -133,20 +129,21 @@ if __name__ == '__main__':
         cidr_list = [args.cidr]
 
     for net_addr in cidr_list:
-        ip_addr_list = generate_ip_addrs(net_addr)
-        ping_jobs, response_by_ip_empty = create_ping_processes(net_addr, ip_addr_list)
-        ping_response_by_ip = get_return_code_response(ping_jobs, response_by_ip_empty)
+        ping_scan = PingScan(net_addr)
+        ping_scan.generate_ip_addrs()
+        ping_scan.create_ping_processes()
+        ping_scan.get_return_code_response()
 
         if args.up is True:
             print('The following hosts are up.\n')
-            print_ip_group(ip_addr_list, 0, ping_response_by_ip)
+            ping_scan.print_ip_group(0)
         elif args.down is True:
             print('The following hosts are down.\n')
-            print_ip_group(ip_addr_list, 1, ping_response_by_ip)
+            ping_scan.print_ip_group(1)
         else:
             print()
-            print_ips_state(ip_addr_list, ping_response_by_ip)
+            ping_scan.print_ips_state()
 
         if args.verbose is True:
             print()
-            print_stdout(ip_addr_list, ping_response_by_ip)
+            ping_scan.print_stdout()
