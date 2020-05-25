@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
 # Gavin Purcell
 
-# To do:
-# unit test
-
 """
 Scan a network by pinging a CIDR range in parallel.
 CIDR notation examples:
@@ -102,7 +99,8 @@ def _get_argparser():
                         help="Input file. Expects subnets in CIDR notation.")
     parser.add_argument('-c', '--cidr',
                         help="Scan a CIDR range i.e. 10.0.0.0/24 which would scan address range 10.0.0.0 - 10.0.0.255")
-    parser.add_argument('-w', '--deadline', default=5, help='Specify a timeout, in seconds, before ping exits.')
+    parser.add_argument('-w', '--deadline', type=int, default=5,
+                        help='Specify a timeout, in seconds, before ping exits.')
     parser.add_argument('-u', '--up', action='store_true', help='Only output hosts that are up.')
     parser.add_argument('-d', '--down', action='store_true', help='Only output hosts that are down.')
     args = parser.parse_args()
