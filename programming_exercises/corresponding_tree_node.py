@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # Find the corresponding node of a binary tree in a cloned tree.
 # Given two binary trees (original and cloned) and a reference to a node target in the original tree...
 # return a reference to the same node in the cloned tree.
@@ -12,14 +13,14 @@ class TreeNode:
 
 # target = 3
 # tree = [7,4,3,null,null,6,19]
-treenode1 = TreeNode(7)
-treenode1.left = TreeNode(4)
-treenode1.right = TreeNode(3)
-treenode1.right.left = 6
-treenode1.right.right = 19
+btree1 = TreeNode(7)
+btree1.left = TreeNode(4)
+btree1.right = TreeNode(3)
+btree1.right.left = 6
+btree1.right.right = 19
 
-treenode_clone1 = treenode1
-target1 = treenode1.right
+btree_clone1 = btree1
+target1 = btree1.right
 
 
 # target = 13
@@ -30,20 +31,20 @@ target1 = treenode1.right
 #             null null      null null      13               1
 #                                       null null      26         25
 #                                                    6 null    null null
-treenode2 = TreeNode(23)
-treenode2.left = TreeNode(9)
-treenode2.right = TreeNode(29)
-treenode2.left.right = TreeNode(28)
-treenode2.right.left = TreeNode(27)
-treenode2.right.right = TreeNode(19)
-treenode2.right.right.left = TreeNode(13)
-treenode2.right.right.right = TreeNode(1)
-treenode2.right.right.right.left = TreeNode(26)
-treenode2.right.right.right.right = TreeNode(25)
-treenode2.right.right.right.left.left = 6
+btree2 = TreeNode(23)
+btree2.left = TreeNode(9)
+btree2.right = TreeNode(29)
+btree2.left.right = TreeNode(28)
+btree2.right.left = TreeNode(27)
+btree2.right.right = TreeNode(19)
+btree2.right.right.left = TreeNode(13)
+btree2.right.right.right = TreeNode(1)
+btree2.right.right.right.left = TreeNode(26)
+btree2.right.right.right.right = TreeNode(25)
+btree2.right.right.right.left.left = 6
 
-treenode_clone2 = treenode2
-target2 = treenode2.right.right.left
+btree_clone2 = btree2
+target2 = btree2.right.right.left
 
 
 class Solution:
@@ -64,9 +65,7 @@ class Solution:
 
 
 solution = Solution()
-target_clone1 = solution.getTargetCopy(treenode1, treenode_clone1, target1)
-target_clone2 = solution.getTargetCopy(treenode2, treenode_clone2, target2)
+target_clone1 = solution.getTargetCopy(btree1, btree_clone1, target1)
+target_clone2 = solution.getTargetCopy(btree2, btree_clone2, target2)
 print(target_clone1.val)  # 3
 print(target_clone2.val)  # 13
-# Runtime: 644 ms
-# Memory Usage: 23.4 MB
