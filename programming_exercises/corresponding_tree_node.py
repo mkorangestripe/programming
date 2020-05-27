@@ -16,8 +16,8 @@ class TreeNode:
 btree1 = TreeNode(7)
 btree1.left = TreeNode(4)
 btree1.right = TreeNode(3)
-btree1.right.left = 6
-btree1.right.right = 19
+btree1.right.left = TreeNode(6)
+btree1.right.right = TreeNode(19)
 
 btree_clone1 = btree1
 target1 = btree1.right
@@ -41,7 +41,7 @@ btree2.right.right.left = TreeNode(13)
 btree2.right.right.right = TreeNode(1)
 btree2.right.right.right.left = TreeNode(26)
 btree2.right.right.right.right = TreeNode(25)
-btree2.right.right.right.left.left = 6
+btree2.right.right.right.left.left = TreeNode(6)
 
 btree_clone2 = btree2
 target2 = btree2.right.right.left
