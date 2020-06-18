@@ -14,8 +14,13 @@ pip install --upgrade --force-reinstall ipython # upgrade or force-reinstall cur
 pip uninstall ipython # uninstall ipython
 pip install -r requirements.txt  # install required packages
 
-setup.py # defines packages to install, references requirements.txt for requirements
-__init__.py # required to make Python treat the directories as packages
+# Packaging
+setup.py  # defines packages to install, can reference requirements.txt for requirements
+ping_scan/__init__.py  # required for directories to be seen as packages
+ping_scan/ping_scan.py
+LICENSE
+README.md
+tests/  # for unit tests, if any
 
 # Install a project in editable mode (develop mode):
 # Project appears to be installed, but is still editable from the src tree.
@@ -40,4 +45,5 @@ pipenv shell # Start a shell with the virtualenv active
 python3 setup.py sdist bdist_wheel
 
 # Install a wheel package
-pip install pgpackup-0.1.0-py3-none-any.whl
+pip3 install ping_scan_mkorangestripe-0.0.1-py3-none-any.whl
+python3 -m pip install ping_scan_mkorangestripe-0.0.1-py3-none-any.whl
