@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # Gavin Purcell
 
+# Useful alias examples:
+# alias pingscan24='pingscan -w 2 -c 192.168.0.0/24'
+# alias pingscan27='pingscan -w 2 -c 192.168.0.0/27'
+
 """
 Scan a network by pinging a CIDR range in parallel.
 CIDR notation examples:
