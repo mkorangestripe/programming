@@ -16,10 +16,12 @@
 """
 This simulates a load balancer that distributes requests between multiple virtual machines.
 
-To start this Flask application:
-FLASK_APP=load_balancer.py flask run
+To start this application with Flask:
+export FLASK_APP=load_balancer.py
+flask run
 
-To get the content from the fake VMs, use curl or a browser:
+To get the content from the fake VMs, use curl or a browser.
+Run the curl command or reload the page multiple times to see unique content from each VM.
 curl 127.0.0.1:5000
 """
 
