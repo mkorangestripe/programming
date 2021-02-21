@@ -1,9 +1,0 @@
-README.md
-setup.py
-ping_scan/__init__.py
-ping_scan/ping_scan.py
-ping_scan_mkorangestripe.egg-info/PKG-INFO
-ping_scan_mkorangestripe.egg-info/SOURCES.txt
-ping_scan_mkorangestripe.egg-info/dependency_links.txt
-ping_scan_mkorangestripe.egg-info/requires.txt
-ping_scan_mkorangestripe.egg-info/top_level.txt
