@@ -1,1 +1,2 @@
-## Python
+## Programming
+Programming techniques and exercises
