@@ -7,7 +7,10 @@ schedule3 = [(2,5),(3,5),(5,7)]
 schedule4 = []
 
 def vm_schedule_count(schedule):
-    """The schedule contains reservations with start and end times."""
+    """
+    The schedules contains reservations with start and end times.
+    This function uses the sliding window technique.
+    """
     trailing_res,leading_res = 0,0
     start,end = 0,1
 
@@ -26,7 +29,7 @@ for schedule in schedules:
     vm_count = vm_schedule_count(schedule)
     print(schedule, str(vm_count))
 
-# schedule1  # 2
-# schedule2  # 3
-# schedule3  # 2
-# schedule4  # 0
+# schedule1: 2 VMs
+# schedule2: 3 VMs
+# schedule3: 2 VMs
+# schedule4: 0 VMs
