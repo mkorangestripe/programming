@@ -43,8 +43,8 @@ for walk_length in range(1,31):
         if distance <=4:
             no_transport += 1
     no_transport_percentage = float(no_transport) / number_of_walks
-    print "Walk size = ", walk_length,\
-          " / % of no transport = ", 100*no_transport_percentage
+    print("Walk size = ", walk_length,\
+          " / % of no transport = ", 100*no_transport_percentage)
 
 # Walk size =  1  / % of no transport =  100.0
 # Walk size =  2  / % of no transport =  100.0
@@ -77,4 +77,4 @@ for walk_length in range(1,31):
 # Walk size =  29  / % of no transport =  28.97
 # Walk size =  30  / % of no transport =  40.64
 
-# The longest walk with over 50% change of no transport is 22 blocks.
+# The longest walk with over 50% chance of no transport is 22 blocks.

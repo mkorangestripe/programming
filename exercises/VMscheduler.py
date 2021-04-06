@@ -27,7 +27,7 @@ def vm_schedule_count(schedule):
 schedules = [schedule1, schedule2, schedule3, schedule4]
 for schedule in schedules:
     vm_count = vm_schedule_count(schedule)
-    print(schedule, str(vm_count))
+    print(schedule, str(vm_count), "VMs")
 
 # schedule1: 2 VMs
 # schedule2: 3 VMs

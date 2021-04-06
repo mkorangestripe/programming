@@ -18,7 +18,7 @@ class Solution(object):
         highest_cnt = 0
 
         for num in arr:
-            if num_hash.has_key(num):
+            if num in num_hash.keys():
                 num_hash[num] = num_hash[num] + 1
             else:
                 num_hash[num] = 1
