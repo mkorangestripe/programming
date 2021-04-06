@@ -63,23 +63,37 @@ class OnePassHash(object):
 nums = [2,7,11,15]
 target = 9
 bruteforce = BruteForce()
-bruteforce.twoSum(nums, target)
-# [0, 1]
+complements = bruteforce.twoSum(nums, target)
+print("BruteForce")
+print("target", target)
+print("array", nums)
+print("complementary indices", complements)
+print('')
+# complementary indices: [0, 1]
 # example runtime: 4624 ms
 # example memory: 12.9 MB
 
 nums = [3,3]
 target = 6
 twopasshash = TwoPassHash()
-twopasshash.twoSum(nums, target)
-# [0, 1]
+complements = twopasshash.twoSum(nums, target)
+print("TwoPassHash")
+print("target", target)
+print("array", nums)
+print("complementary indices", complements)
+print('')
+# complementary indices: [0, 1]
 # example runtime: 1928 ms
 # example memory: 13.5 MB
 
 nums = [3,2,4]
 target = 6
 onepasshash = OnePassHash()
-onepasshash.twoSum(nums, target)
-# [1, 2]
+complements = onepasshash.twoSum(nums, target)
+print("OnePassHash")
+print("target", target)
+print("array", nums)
+print("complementary indices", complements)
+# complementary indices: [1, 2]
 # example runtime: 652 ms
 # example memory: 13.1 MB
