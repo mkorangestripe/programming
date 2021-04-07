@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # 0/1 Knapsack problem
 # Examples from MIT OCW
 
@@ -7,7 +8,7 @@
 # The results are computed by value, calories, or the ratio of value/calories.
 # In this example 'greedy by value' produced the highest total value <= the calorie limit.
 
-class Food(object):
+class Food:
     def __init__(self, n, v, w):
         self.name = n
         self.value = v

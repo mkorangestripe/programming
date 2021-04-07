@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Remove Duplicates from Beginning of Sorted Array
 # Modifying the input array in-place with O(1) extra memory.
 # Duplicate elements may be present after unique elements.
@@ -10,7 +11,7 @@ nums5 = [1, 1, 1, 1]
 nums6 = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
 
 
-class Solution(object):
+class Solution:
     def removeDuplicates(self, nums):
         """
         :type nums: List[int]

@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Longest Substring (with the following requirements)
 # Must not contain a number.
 # Contains at least one uppercase letter.

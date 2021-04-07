@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Estimating the square root of 'x'
 # This is an example of successive approximation using the
 # guess-and-check method (exhaustive enumeration) and the bisection method.
@@ -9,11 +10,11 @@
 # Simple guess-and-check
 x = 2500
 numGuesses = 0
-upper = x / 2
+upper = int(x / 2)
 for i in range(0, upper):
     numGuesses += 1
     if i**2 == x:
-        print 'numGuesses =', numGuesses
+        print('numGuesses =', numGuesses)
         break
 
 # numGuesses = 51
@@ -29,7 +30,7 @@ high = max(x, 1)
 ans = (high + low)/2.0
 
 while abs(ans**2 - x) >= epsilon and ans <= x:
-    print low, high, ans
+    print(low, high, ans)
     numGuesses += 1
     if ans**2 < x:
         low = ans
@@ -37,8 +38,8 @@ while abs(ans**2 - x) >= epsilon and ans <= x:
         high = ans
     ans = (high + low)/2.0
 
-print 'numGuesses =', numGuesses
-print ans, 'is close to square root of', x
+print('numGuesses =', numGuesses)
+print(ans, 'is close to square root of', x)
 
 # 0.0 25 12.5
 # 0.0 12.5 6.25

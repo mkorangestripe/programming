@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Scaling data to fit between 0 and 1
 # Example from MIT OCW
 
@@ -16,7 +17,7 @@ scaleDict = {'identity': [1,1,1,1,1,1,1,1],
 
 # For each tooth, multiply the tooth by max, e.g.
 for i in range(len(Wolf)):
-    print float(Wolf[i]) *  scaleDict['1/max'][i]
+    print(float(Wolf[i]) *  scaleDict['1/max'][i])
 
 # 1.0
 # 0.75

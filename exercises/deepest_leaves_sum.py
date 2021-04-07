@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 # Given a binary tree, return the sum of values of its deepest leaves.
 
 

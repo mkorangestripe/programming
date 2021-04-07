@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # VM scheduler
 # Determine the number of VMs needed based on the schedule.
 

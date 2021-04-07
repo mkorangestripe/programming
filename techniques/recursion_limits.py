@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Prime number generators
 # The recursive versions below show the limits of recursion for this type of program.
 
@@ -15,7 +16,7 @@ for i in range(3, n, 2):
       primelist.append(i)
       break
 
-print "The last prime number before", n, "is", primelist[-1]
+print("The last prime number before", n, "is", primelist[-1])
 
 
 # This finds the nth prime number.
@@ -34,7 +35,7 @@ while len(primelist) < n:
       j+=1
   i+=2
 
-print "The", str(n) + "(st,nd,rd,th)", "prime number is", primelist[-1]
+print("The", str(n) + "(st,nd,rd,th)", "prime number is", primelist[-1])
 
 
 # Recursive version, returns list of prime numbers.

@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Searching and Sorting and Time Complexity
 # Examples from MIT OCW
 # Examples use sorted and unsorted lists.

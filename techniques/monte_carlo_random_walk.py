@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Random Walk and Monte Carlo simulation
 # Examples from Socratica
 import random
@@ -23,7 +24,7 @@ for i in range(number_of_walks):
     walk = random_walk_2(10)
     print(walk, "Distance from home = ",
           abs(walk[0]) + abs(walk[1]))
-print
+print('')
 
 
 # What is the longest random walk you

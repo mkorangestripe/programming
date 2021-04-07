@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Monte Carlo Yahtzee simulation
 # Examples from MIT OWC and other soures
 
@@ -51,7 +52,7 @@ def yahtzee(dice_rolls):
 # dice_rolls = 100000
 dice_rolls = 1000000
 
-print 'Yahtzee simulation...'
-print yahtzee(dice_rolls)
+print('Yahtzee simulation...')
+print(yahtzee(dice_rolls))
 # Yahtzee simulation...
 # 0.000762

@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Two Element Sum
 # Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 # You may assume that each input would have exactly one solution, and you may not use the same element twice.
@@ -6,7 +7,7 @@
 # Brute Force
 # Time complexity: O(n^2)
 # Space complexity: O(1)
-class BruteForce(object):
+class BruteForce:
     def twoSum(self, nums, target):
         """
         :type nums: List[int]
@@ -23,7 +24,7 @@ class BruteForce(object):
 # Two-pass Hash Table
 # Time complexity: O(n)
 # Space complexity: O(n)
-class TwoPassHash(object):
+class TwoPassHash:
     def twoSum(self, nums, target):
         """
         :type nums: List[int]
@@ -44,7 +45,7 @@ class TwoPassHash(object):
 # One-pass Hash Table
 # Time complexity: O(n)
 # Space complexity: O(n)
-class OnePassHash(object):
+class OnePassHash:
     def twoSum(self, nums, target):
         """
         :type nums: List[int]

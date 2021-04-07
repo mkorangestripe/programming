@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Smallest Possible int not in Array
 # Given an array A of N integers, returns the smallest positive integer (greater than 0) that does not occur in A.
 # N is an integer within the range [1..100,000].

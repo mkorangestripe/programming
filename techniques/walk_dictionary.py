@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """Walk a dictionary and match on uuid patterns."""
 
 import json
@@ -37,7 +38,7 @@ def walk_dict(iterobj):
     else:
         match = re_uuid.match(str(iterobj))
         if bool(match):
-            print iterobj
+            print(iterobj)
 
 walk_dict(pipeline)
 

@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Orders of Growth of algorithms and Time Complexity
 # Examples from MIT OWC
 

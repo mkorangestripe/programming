@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Hashing
 # http://en.wikipedia.org/wiki/Hash_function
 # A hash function is any algorithm that maps data of variable length to data of a fixed length.

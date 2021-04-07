@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Bisection search examples
 # Lists must be sorted
 # Continuously halves the list range to be searched.

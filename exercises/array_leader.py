@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Array Leader
 # A non-empty array A consisting of N integers and sorted in a non-decreasing order...
 # (i.e. A[0] ≤ A[1] ≤ ... ≤ A[N−1]) is given.
@@ -10,7 +11,7 @@ L2 = [2, 2, 2, 2, 2, 2, 3, 4, 4, 4, 6]
 L3 = [1, 1, 1, 1, 50]
 
 
-class Solution(object):
+class Solution:
     def array_leader(self, arr):
         array_length = len(arr)
         num_hash = {}
@@ -30,8 +31,7 @@ class Solution(object):
 
         if highest_cnt > (array_length / 2):
             return highest_cnt_num
-        else:
-            return -1
+        return -1
 
 
 solution = Solution()

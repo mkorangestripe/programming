@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Recursion
 # Also see recursive prime number generator examples
 

@@ -1,7 +1,8 @@
+#!/usr/bin/env python
 # Finding the shortest path between two points
 # Examples from MIT OWC
 
-class Node(object):
+class Node:
     def __init__(self, name):
         """Assumes name is a string"""
         self.name = name
@@ -13,7 +14,7 @@ class Node(object):
         return self.name
 
 
-class Edge(object):
+class Edge:
     def __init__(self, src, dest):
         """Assumes src and dest are nodes"""
         self.src = src
@@ -40,7 +41,7 @@ for city in edge1, edge2: print(city)
 # Providence->New York
 
 
-class Digraph(object):
+class Digraph:
     """edges is a dict mapping each node to a list of
     its children"""
 
