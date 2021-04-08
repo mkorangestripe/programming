@@ -2,6 +2,10 @@
 # Longest Common Prefix
 # Given a list of strings, find the longest common prefix
 
+strs1 = ["flower", "flow", "flight"]
+strs2 = ["dog", "racecar", "car"]
+strs3 = ['leets', 'leetcode', 'leetc', 'leeds']
+
 
 class Solution:
     def longestCommonPrefix(self, strs):
@@ -77,10 +81,6 @@ class SolutionBinarySearch:
             i += 1
         return True
 
-
-strs1 = ["flower", "flow", "flight"]
-strs2 = ["dog", "racecar", "car"]
-strs3 = ['leets', 'leetcode', 'leetc', 'leeds']
 
 solution = SolutionBinarySearch()
 print(strs1, solution.longestCommonPrefix(strs1))  # 'fl'
