@@ -26,6 +26,6 @@ def solution(a):
     return smallest
 
 
-print(solution(A1))  # 5
-print(solution(A2))  # 4
-print(solution(A3))  # 1
+print(A1, solution(A1))  # 5
+print(A2, solution(A2))  # 4
+print(A3, solution(A3))  # 1

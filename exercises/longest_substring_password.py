@@ -33,8 +33,8 @@ class Solution:
 
 
 solution = Solution()
-print(solution.lengthOfLongestSubstring(S1))  # (2, 'Bu')
-print(solution.lengthOfLongestSubstring(S2))  # (3, 'HBu')
-print(solution.lengthOfLongestSubstring(S3))  # (3, 'HBu')
-print(solution.lengthOfLongestSubstring(S4))  # (4, 'Kqwn')
-print(solution.lengthOfLongestSubstring(S5))  # -1
+print(S1, solution.lengthOfLongestSubstring(S1))  # (2, 'Bu')
+print(S2, solution.lengthOfLongestSubstring(S2))  # (3, 'HBu')
+print(S3, solution.lengthOfLongestSubstring(S3))  # (3, 'HBu')
+print(S4, solution.lengthOfLongestSubstring(S4))  # (4, 'Kqwn')
+print(S5, solution.lengthOfLongestSubstring(S5))  # -1

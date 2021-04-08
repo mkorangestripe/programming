@@ -67,5 +67,5 @@ class Solution:
 solution = Solution()
 target_clone1 = solution.getTargetCopy(btree1, btree_clone1, target1)
 target_clone2 = solution.getTargetCopy(btree2, btree_clone2, target2)
-print(target_clone1.val)  # 3
-print(target_clone2.val)  # 13
+print("target_clone1.val:", target_clone1.val)
+print("target_clone2.val:", target_clone2.val)

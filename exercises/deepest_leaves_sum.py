@@ -49,4 +49,4 @@ class Solution:
 
 solution = Solution()
 deepest_leaves_sum = solution.deepestLeavesSum(btree)
-print(deepest_leaves_sum)  # 15
+print("Sum of deepest leaves:", deepest_leaves_sum)  # Sum of deepest leaves: 15

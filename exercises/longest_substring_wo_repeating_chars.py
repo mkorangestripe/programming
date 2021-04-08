@@ -34,12 +34,12 @@ class Solution:
 
 
 solution = Solution()
-solution.lengthOfLongestSubstring(s1)  # 3
-solution.lengthOfLongestSubstring(s2)  # 2
-solution.lengthOfLongestSubstring(s3)  # 6
-solution.lengthOfLongestSubstring(s4)  # 3
-solution.lengthOfLongestSubstring(s5)  # 3
-solution.lengthOfLongestSubstring(s6)  # 12
+print(s1, solution.lengthOfLongestSubstring(s1))  # 3
+print(s2, solution.lengthOfLongestSubstring(s2))  # 2
+print(s3, solution.lengthOfLongestSubstring(s3))  # 6
+print(s4, solution.lengthOfLongestSubstring(s4))  # 3
+print(s5, solution.lengthOfLongestSubstring(s5))  # 3
+print(s6, solution.lengthOfLongestSubstring(s6))  # 12
 
 # example runtime: 144 ms
 # example memory: 13 MB

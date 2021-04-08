@@ -83,9 +83,9 @@ strs2 = ["dog", "racecar", "car"]
 strs3 = ['leets', 'leetcode', 'leetc', 'leeds']
 
 solution = SolutionBinarySearch()
-print(solution.longestCommonPrefix(strs1))  # 'fl'
-print(solution.longestCommonPrefix(strs2))  # ''
-print(solution.longestCommonPrefix(strs3))  # 'lee'
+print(strs1, solution.longestCommonPrefix(strs1))  # 'fl'
+print(strs2, solution.longestCommonPrefix(strs2))  # ''
+print(strs3, solution.longestCommonPrefix(strs3))  # 'lee'
 
 # Example runtime: 12 ms
 # Example memory: 12 MB

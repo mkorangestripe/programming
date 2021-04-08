@@ -23,4 +23,5 @@ class Codec:
 
 url = "https://leetcode.com/problems/design-tinyurl"
 codec = Codec()
-print(codec.decode(codec.encode(url)))
+print("Encoded:", codec.encode(url))
+print("Decoded:", codec.decode(codec.encode(url)))

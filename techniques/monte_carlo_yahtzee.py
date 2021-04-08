@@ -53,6 +53,8 @@ def yahtzee(dice_rolls):
 dice_rolls = 1000000
 
 print('Yahtzee simulation...')
-print(yahtzee(dice_rolls))
+print("Dice rolls:", dice_rolls)
+print("Probability of five dice the same:", yahtzee(dice_rolls))
 # Yahtzee simulation...
-# 0.000762
+# Dice rolls: 1000000
+# Probability of five dice the same: 0.000757

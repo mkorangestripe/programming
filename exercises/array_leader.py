@@ -35,6 +35,6 @@ class Solution:
 
 
 solution = Solution()
-print(solution.array_leader(L1))  # -1
-print(solution.array_leader(L2))  # 2
-print(solution.array_leader(L3))  # 1
+print(L1, solution.array_leader(L1))  # -1
+print(L2, solution.array_leader(L2))  # 2
+print(L3, solution.array_leader(L3))  # 1
