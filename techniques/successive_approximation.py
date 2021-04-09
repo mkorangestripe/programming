@@ -10,7 +10,7 @@
 # Simple guess-and-check
 x = 2500
 numGuesses = 0
-upper = int(x / 2)
+upper = x//2
 for i in range(0, upper):
     numGuesses += 1
     if i**2 == x:
