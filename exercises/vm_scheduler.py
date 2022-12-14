@@ -1,13 +1,15 @@
 #!/usr/bin/env python
-# VM scheduler
-# Determine the number of VMs needed based on the schedule.
+"""
+VM scheduler
+Determine the number of VMs needed based on the schedule.
+"""
 
 schedule1 = [(2,5),(3,6),(5,7)]
 schedule2 = [(2,5),(3,6),(5,7),(5,8)]
 schedule3 = [(2,5),(3,5),(5,7)]
 schedule4 = []
 
-def vm_schedule_count(schedule):
+def vm_schedule_count(vm_schedule):
     """
     The schedules contains reservations with start and end times.
     This function uses the sliding window technique.
@@ -15,8 +17,8 @@ def vm_schedule_count(schedule):
     trailing_res,leading_res = 0,0
     start,end = 0,1
 
-    for reservation in schedule:
-        for prev_reservation in schedule[trailing_res:leading_res]:
+    for reservation in vm_schedule:
+        for prev_reservation in vm_schedule[trailing_res:leading_res]:
             if prev_reservation[end] <= reservation[start]:
                 trailing_res += 1
                 break
