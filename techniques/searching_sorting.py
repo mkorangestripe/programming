@@ -1,8 +1,14 @@
 #!/usr/bin/env python
-# Searching and Sorting and Time Complexity
-# Examples from MIT OCW
-# Examples use sorted and unsorted lists.
-# Sorting first can be more efficient, but only when doing multiple searches.
+
+"""
+Searching and Sorting and Time Complexity
+Examples from MIT OCW
+Examples use sorted and unsorted lists.
+Sorting first can be more efficient, but only when doing multiple searches.
+"""
+
+import random
+
 
 # Linear search (unsorted list)
 # An unsorted list, at worst must look through all elements.
@@ -10,6 +16,7 @@
 # O(n) where n is len(L)
 
 def linear_search(L, e):
+    """Linear search"""
     found = False
     for i in range(len(L)):
         if e == L[i]:
@@ -23,6 +30,7 @@ def linear_search(L, e):
 # O(n) where n is len(L)
 
 def search(L, e):
+    """Linear search (sorted list)"""
     for i in range(len(L)):
         if L[i] == e:
             return True
@@ -35,8 +43,9 @@ def search(L, e):
 # Example, sort a deck of cards by throwing in air, picking up, and checking if sorted.
 # O(n) where n is len(L)
 # O(?) worst case, it is unbounded if the deck never randomly sorts.
-import random
+
 def bogo_sort(L):
+    """Bogo aka Monkey sort"""
     while not is_sorted(L):
         random.shuffle(L)
 
@@ -48,6 +57,7 @@ def bogo_sort(L):
 # O(n^2) where n is len(L)
 
 def bubble_sort(L):
+    """Bubble sort"""
     swap = False
     while not swap:
         print('bubble sort: ' + str(L))
@@ -80,13 +90,14 @@ print(testList)
 # O(n^2) where n is len(L)
 
 def selection_sort(L):
-    suffixSt = 0
-    while suffixSt != len(L):
+    """Selection sort"""
+    suffix_st = 0
+    while suffix_st != len(L):
         print('selection sort: ' + str(L))
-        for i in range(suffixSt, len(L)):
-            if L[i] < L[suffixSt]:
-                L[suffixSt], L[i] = L[i], L[suffixSt]
-        suffixSt += 1
+        for i in range(suffix_st, len(L)):
+            if L[i] < L[suffix_st]:
+                L[suffix_st], L[i] = L[i], L[suffix_st]
+        suffix_st += 1
 
 testList = [1,3,5,7,2,6,25,18,13]
 
@@ -139,11 +150,10 @@ def merge_sort(L):
     print('merge sort: ' + str(L))
     if len(L) < 2:
         return L[:]
-    else:
-        middle = len(L) // 2
-        left = merge_sort(L[:middle])
-        right = merge_sort(L[middle:])
-        return merge(left, right)
+    middle = len(L) // 2
+    left = merge_sort(L[:middle])
+    right = merge_sort(L[middle:])
+    return merge(left, right)
 
 
 testList = [1, 3, 5, 7, 2, 6, 25, 18, 13]

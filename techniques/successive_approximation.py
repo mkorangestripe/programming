@@ -1,45 +1,47 @@
 #!/usr/bin/env python
-# Estimating the square root of 'x'
-# This is an example of successive approximation using the
-# guess-and-check method (exhaustive enumeration) and the bisection method.
-# With larger numbers like 2500, the number of guesses is less than half
-# than without using the bisection method.
-# Examples from MIT OCW
 
+"""
+Estimating the square root of 'x'
+This is an example of successive approximation using the
+guess-and-check method (exhaustive enumeration) and the bisection method.
+With larger numbers like 2500, the number of guesses is less than half
+than without using the bisection method.
+Examples from MIT OCW
+"""
 
 # Simple guess-and-check
-x = 2500
-numGuesses = 0
-upper = x//2
-for i in range(0, upper):
-    numGuesses += 1
-    if i**2 == x:
-        print('numGuesses =', numGuesses)
+X = 2500
+NUM_GUESSES = 0
+UPPER = X//2
+for i in range(0, UPPER):
+    NUM_GUESSES += 1
+    if i**2 == X:
+        print('NUM_GUESSES =', NUM_GUESSES)
         break
 
-# numGuesses = 51
+# NUM_GUESSES = 51
 
 
 # Successive approximation using guess-and-check and bisection methods.
-# For 'x = 2500', numGuesses = 20
-x = 25
-epsilon = 0.01
-numGuesses = 0
-low = 0.0
-high = max(x, 1)
-ans = (high + low)/2.0
+# For 'X = 2500', NUM_GUESSES = 20
+X = 25
+EPSILON = 0.01
+NUM_GUESSES = 0
+LOW = 0.0
+high = max(X, 1)
+ans = (high + LOW)/2.0
 
-while abs(ans**2 - x) >= epsilon and ans <= x:
-    print(low, high, ans)
-    numGuesses += 1
-    if ans**2 < x:
-        low = ans
+while abs(ans**2 - X) >= EPSILON and ans <= X:
+    print(LOW, high, ans)
+    NUM_GUESSES += 1
+    if ans**2 < X:
+        LOW = ans
     else:
         high = ans
-    ans = (high + low)/2.0
+    ans = (high + LOW)/2.0
 
-print('numGuesses =', numGuesses)
-print(ans, 'is close to square root of', x)
+print('NUM_GUESSES =', NUM_GUESSES)
+print(ans, 'is close to square root of', X)
 
 # 0.0 25 12.5
 # 0.0 12.5 6.25
@@ -54,5 +56,5 @@ print(ans, 'is close to square root of', x)
 # 4.98046875 5.0048828125 4.99267578125
 # 4.99267578125 5.0048828125 4.99877929688
 # 4.99877929688 5.0048828125 5.00183105469
-# numGuesses = 13
+# NUM_GUESSES = 13
 # 5.00030517578 is close to square root of 25

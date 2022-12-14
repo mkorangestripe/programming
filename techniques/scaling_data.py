@@ -1,12 +1,15 @@
 #!/usr/bin/env python
-# Scaling data to fit between 0 and 1
-# Example from MIT OCW
 
-# Number of kinds of teeth
-# Wolf                33114423
-# Brown Bat           23113333
-# Rat                 22000066
-# Human               22112233
+"""
+Scaling data to fit between 0 and 1
+Example from MIT OCW
+
+Number of kinds of teeth
+Wolf                33114423
+Brown Bat           23113333
+Rat                 22000066
+Human               22112233
+"""
 
 Wolf = ['3', '3', '1', '1', '4', '4', '2', '3']
 Rat = ['2', '2', '0', '0', '0', '0', '6', '6']

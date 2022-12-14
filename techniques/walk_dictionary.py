@@ -4,7 +4,7 @@
 import json
 import re
 
-pipeline_dev = '''{
+PIPELINE_DEV = '''{
  "triggers": [
   {
    "enabled": true,
@@ -26,9 +26,10 @@ pipeline_dev = '''{
 
 re_uuid = re.compile("[0-F]{8}-([0-F]{4}-){3}[0-F]{12}", re.I)
 
-pipeline = json.loads(pipeline_dev)
+pipeline = json.loads(PIPELINE_DEV)
 
 def walk_dict(iterobj):
+    """Walk Dictionary"""
     if isinstance(iterobj, dict):
         for k in iterobj:
             walk_dict(iterobj[k])
