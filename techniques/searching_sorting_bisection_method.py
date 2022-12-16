@@ -1,9 +1,11 @@
 #!/usr/bin/env python
-# Bisection search examples
-# Lists must be sorted
-# Continuously halves the list range to be searched.
-# O(log n) - reduces the problem by a factor of 2 on each step.
 
+"""
+Bisection search examples
+Lists must be sorted
+Continuously halves the list range to be searched.
+O(log n) - reduces the problem by a factor of 2 on each step.
+"""
 
 # Bisection search to find x between 1 and 100
 

@@ -1,6 +1,9 @@
 #!/usr/bin/env python
-# Recursion
-# Also see recursive prime number generator examples
+
+"""
+Recursion
+Also see recursive prime number generator examples
+"""
 
 # Converting an iterative map function to recursive
 # These return cubes [1, 8, 27]

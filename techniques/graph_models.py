@@ -1,8 +1,12 @@
 #!/usr/bin/env python
-# Finding the shortest path between two points
-# Examples from MIT OWC
+
+"""
+Finding the shortest path between two points
+Examples from MIT OWC
+"""
 
 class Node:
+    """Create nodes (vertices)"""
     def __init__(self, name):
         """Assumes name is a string"""
         self.name = name
@@ -13,8 +17,8 @@ class Node:
     def __str__(self):
         return self.name
 
-
 class Edge:
+    """Create edges"""
     def __init__(self, src, dest):
         """Assumes src and dest are nodes"""
         self.src = src
@@ -30,13 +34,13 @@ class Edge:
         return self.src.getName() + '->' + self.dest.getName()
 
 
-# Create nodes and edges example
 Boston = Node('Boston')
 Providence = Node('Providence')
 New_York = Node('New York')
 edge1 = Edge(Boston, Providence)
 edge2 = Edge(Providence, New_York)
-for city in edge1, edge2: print(city)
+for city in edge1, edge2:
+    print(city)
 # Boston->Providence
 # Providence->New York
 
@@ -51,8 +55,7 @@ class Digraph:
     def addNode(self, node):
         if node in self.edges:
             raise ValueError('Duplicate node')
-        else:
-            self.edges[node] = []
+        self.edges[node] = []
 
     def addEdge(self, edge):
         src = edge.getSource()
@@ -107,16 +110,6 @@ def buildCityGraph(graphType):
     return g
 
 
-def printPath(path):
-    """Assumes path is a list of nodes"""
-    result = ''
-    for i in range(len(path)):
-        result = result + str(path[i])
-        if i != len(path) - 1:
-            result = result + '->'
-    return result
-
-
 # Build graph of cities example
 country = buildCityGraph(Digraph)
 print(country)
@@ -167,7 +160,7 @@ def DFS(graph, start, end, path, shortest, toPrint = False):
         return path
     for node in graph.childrenOf(start): # try all the children of the current node
         if node not in path: #avoid cycles
-            if shortest == None or len(path) < len(shortest):
+            if shortest is None or len(path) < len(shortest):
                 newPath = DFS(graph, node, end, path, shortest,
                               toPrint)
                 if newPath != None:
@@ -188,7 +181,7 @@ def testSP(source, destination):
     g = buildCityGraph(Digraph)
     sp = shortestPath(g, g.getNode(source), g.getNode(destination),
                       toPrint = True)
-    if sp != None:
+    if sp is not None:
         print('Shortest path from', source, 'to',
               destination, 'is', printPath(sp))
     else:
@@ -224,7 +217,7 @@ testSP('Boston', 'Phoenix')
 # Shortest path from Boston to Phoenix is Boston->New York->Chicago->Phoenix
 
 
-printQueue = True
+PRINT_QUEUE = True
 
 # Breadth First Search
 # Consider all the edges that leave a node.
@@ -241,7 +234,7 @@ def BFS(graph, start, end, toPrint=False):
     pathQueue = [initPath]
     while len(pathQueue) != 0:
         # Get and remove oldest element in pathQueue
-        if printQueue:
+        if PRINT_QUEUE:
             print('Queue:', len(pathQueue))
             for p in pathQueue:
                 print(printPath(p))
