@@ -1,7 +1,9 @@
 #!/usr/bin/env python
-# Two Element Sum
-# Given an array of integers, return indices of the two numbers such that they add up to a specific target.
-# You may assume that each input would have exactly one solution, and you may not use the same element twice.
+"""
+Two Element Sum
+Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+"""
 
 
 # Brute Force
@@ -33,6 +35,7 @@ class TwoPassHash:
         """
         num_hash = {}
 
+        # num_hash = {3:1}
         for i in range(len(nums)):
             num_hash[nums[i]] = i
 
@@ -62,39 +65,39 @@ class OnePassHash:
 
 
 nums = [2,7,11,15]
-target = 9
+TARGET = 9
 bruteforce = BruteForce()
-complements = bruteforce.twoSum(nums, target)
+complements = bruteforce.twoSum(nums, TARGET)
 print("BruteForce")
-print("target", target)
-print("array", nums)
-print("complementary indices", complements)
-print('')
+print("Target:", TARGET)
+print("Array:", nums)
+print("Complementary indices:", complements)
+print()
 # complementary indices: [0, 1]
 # example runtime: 4624 ms
 # example memory: 12.9 MB
 
 nums = [3,3]
-target = 6
+TARGET = 6
 twopasshash = TwoPassHash()
-complements = twopasshash.twoSum(nums, target)
+complements = twopasshash.twoSum(nums, TARGET)
 print("TwoPassHash")
-print("target", target)
-print("array", nums)
-print("complementary indices", complements)
-print('')
+print("Target:", TARGET)
+print("Array:", nums)
+print("Complementary indices:", complements)
+print()
 # complementary indices: [0, 1]
 # example runtime: 1928 ms
 # example memory: 13.5 MB
 
 nums = [3,2,4]
-target = 6
+TARGET = 6
 onepasshash = OnePassHash()
-complements = onepasshash.twoSum(nums, target)
+complements = onepasshash.twoSum(nums, TARGET)
 print("OnePassHash")
-print("target", target)
-print("array", nums)
-print("complementary indices", complements)
+print("Target:", TARGET)
+print("Array:", nums)
+print("Complementary indices:", complements)
 # complementary indices: [1, 2]
 # example runtime: 652 ms
 # example memory: 13.1 MB
