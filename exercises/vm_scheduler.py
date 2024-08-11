@@ -2,12 +2,18 @@
 """
 VM scheduler
 Determine the number of VMs needed based on the schedule.
+
+Results using the schedules below:
+SCHEDULE1: 2 VMs
+SCHEDULE2: 3 VMs
+SCHEDULE3: 2 VMs
+SCHEDULE4: 0 VMs
 """
 
-schedule1 = [(2,5),(3,6),(5,7)]
-schedule2 = [(2,5),(3,6),(5,7),(5,8)]
-schedule3 = [(2,5),(3,5),(5,7)]
-schedule4 = []
+SCHEDULE1 = [(2,5),(3,6),(5,7)]
+SCHEDULE2 = [(2,5),(3,6),(5,7),(5,8)]
+SCHEDULE3 = [(2,5),(3,5),(5,7)]
+SCHEDULE4 = []
 
 def vm_schedule_count(vm_schedule):
     """
@@ -18,8 +24,8 @@ def vm_schedule_count(vm_schedule):
     start,end = 0,1
 
     for reservation in vm_schedule:
-        for prev_reservation in vm_schedule[trailing_res:leading_res]:
-            if prev_reservation[end] <= reservation[start]:
+        for previous_res in vm_schedule[trailing_res:leading_res]:
+            if previous_res[end] <= reservation[start]:
                 trailing_res += 1
                 break
         leading_res += 1
@@ -27,12 +33,7 @@ def vm_schedule_count(vm_schedule):
     return len(schedule[trailing_res:leading_res])
 
 
-schedules = [schedule1, schedule2, schedule3, schedule4]
+schedules = [SCHEDULE1, SCHEDULE2, SCHEDULE3, SCHEDULE4]
 for schedule in schedules:
     vm_count = vm_schedule_count(schedule)
     print(schedule, str(vm_count), "VMs")
-
-# schedule1: 2 VMs
-# schedule2: 3 VMs
-# schedule3: 2 VMs
-# schedule4: 0 VMs
