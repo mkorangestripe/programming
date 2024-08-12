@@ -2,12 +2,6 @@
 """
 VM scheduler
 Determine the number of VMs needed based on the schedule.
-
-Results using the schedules below:
-SCHEDULE1: 2 VMs
-SCHEDULE2: 3 VMs
-SCHEDULE3: 2 VMs
-SCHEDULE4: 0 VMs
 """
 
 SCHEDULE1 = [(2,5),(3,6),(5,7)]
@@ -37,3 +31,8 @@ schedules = [SCHEDULE1, SCHEDULE2, SCHEDULE3, SCHEDULE4]
 for schedule in schedules:
     vm_count = vm_schedule_count(schedule)
     print(schedule, str(vm_count), "VMs")
+
+# [(2, 5), (3, 6), (5, 7)] 2 VMs
+# [(2, 5), (3, 6), (5, 7), (5, 8)] 3 VMs
+# [(2, 5), (3, 5), (5, 7)] 2 VMs
+# [] 0 VMs
