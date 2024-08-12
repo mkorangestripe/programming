@@ -1,6 +1,8 @@
 #!/usr/bin/env python
-# Longest Common Prefix
-# Given a list of strings, find the longest common prefix
+"""
+Longest Common Prefix
+Given a list of strings, find the longest common prefix
+"""
 
 strs1 = ["flower", "flow", "flight"]
 strs2 = ["dog", "racecar", "car"]

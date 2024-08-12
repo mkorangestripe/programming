@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-import hashlib
 
+import hashlib
 
 class Codec:
 

@@ -1,9 +1,10 @@
 #!/usr/bin/env python
-# Find the corresponding node of a binary tree in a cloned tree.
-# Given two binary trees (original and cloned) and a reference to a node target in the original tree...
-# return a reference to the same node in the cloned tree.
+"""
+Find the corresponding node of a binary tree in a cloned tree.
+Given two binary trees (original and cloned) and a reference to a node target in the original tree...
+return a reference to the same node in the cloned tree.
+"""
 
-# Definition for the binary tree node.
 class TreeNode:
     def __init__(self, x):
         self.val = x

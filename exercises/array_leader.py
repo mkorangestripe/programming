@@ -1,15 +1,16 @@
 #!/usr/bin/env python
-# Array Leader
-# A non-empty array A consisting of N integers and sorted in a non-decreasing order...
-# (i.e. A[0] ≤ A[1] ≤ ... ≤ A[N−1]) is given.
-# The leader of this array is the value that occurs in more than half of the elements of A.
-# Given a non-empty array A consisting of N integers, sorted in a non-decreasing order, returns the leader of array A.
-# The function should return −1 if array A does not contain a leader.
+"""
+Array Leader
+A non-empty array A consisting of N integers and sorted in a non-decreasing order...
+(i.e. A[0] ≤ A[1] ≤ ... ≤ A[N−1]) is given.
+The leader of this array is the value that occurs in more than half of the elements of A.
+Given a non-empty array A consisting of N integers, sorted in a non-decreasing order, returns the leader of array A.
+The function should return −1 if array A does not contain a leader.
+"""
 
 L1 = [2, 2, 2, 2, 2, 3, 4, 4, 4, 6]
 L2 = [2, 2, 2, 2, 2, 2, 3, 4, 4, 4, 6]
 L3 = [1, 1, 1, 1, 50]
-
 
 class Solution:
     def array_leader(self, arr):

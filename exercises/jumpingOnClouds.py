@@ -1,9 +1,11 @@
 #!/usr/bin/env python
-# Jumping On Clouds
-# Start with an array of clouds where cumulus are safe and thunderheads must be avoided.
-# cumulus = 0, thunderheads = 1
-# The first and last elements are 0 (cumulus).
-# Move from first to last but only by one or two clouds per jump.
+"""
+Jumping On Clouds
+Start with an array of clouds where cumulus are safe and thunderheads must be avoided.
+cumulus = 0, thunderheads = 1
+The first and last elements are 0 (cumulus).
+Move from first to last but only by one or two clouds per jump.
+"""
 
 def jumpingOnClouds(c):
     def jumpingOnClouds_helper(c, i=0, jumps=1):

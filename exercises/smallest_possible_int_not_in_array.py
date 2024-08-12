@@ -1,13 +1,14 @@
 #!/usr/bin/env python
-# Smallest Possible int not in Array
-# Given an array A of N integers, returns the smallest positive integer (greater than 0) that does not occur in A.
-# N is an integer within the range [1..100,000].
-# Each element of array A is an integer within the range [−1,000,000..1,000,000].
+"""
+Smallest Possible int not in Array
+Given an array A of N integers, returns the smallest positive integer (greater than 0) that does not occur in A.
+N is an integer within the range [1..100,000].
+Each element of array A is an integer within the range [−1,000,000..1,000,000].
+"""
 
 A1 = [1, 3, 6, 4, 1, 2]
 A2 = [1, 2, 3]
 A3 = [-1, -3]
-
 
 def solution(a):
     smallest = 0
@@ -24,7 +25,6 @@ def solution(a):
     if smallest == 0:
         return a[-1] + 1
     return smallest
-
 
 print(A1, solution(A1))  # 5
 print(A2, solution(A2))  # 4

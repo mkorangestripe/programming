@@ -1,8 +1,9 @@
 #!/usr/bin/env python
-# Given a binary tree, return the sum of values of its deepest leaves.
+"""
+Given a binary tree, return the sum of values of its deepest leaves.
+"""
 
 
-# Definition for the binary tree node.
 class TreeNode:
     def __init__(self, x):
         self.val = x

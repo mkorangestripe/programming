@@ -124,7 +124,7 @@ def simple_bisect_search2(L, x, low_i, high_i):
 def run_bisect_search(L, x_list):
     # print(L,'\n')
     low = 0
-    high = (len(L) - 1)
+    high = len(L) - 1
     for x in x_list:
         if x < L[low] or x > L[high]:
             print(x, 'is out of bounds')
@@ -134,7 +134,8 @@ def run_bisect_search(L, x_list):
 
 
 # L = create_random_list()
-L = [1, 3, 8, 10, 10, 12, 14, 21, 22, 22, 23, 26, 37, 45, 54, 54, 55, 58, 64, 68, 71, 81, 89, 90, 100]
+L = [1, 3, 8, 10, 10, 12, 14, 21, 22, 22, 23, 26, 37,
+     45, 54, 54, 55, 58, 64, 68, 71, 81, 89, 90, 100]
 x_list = [17, 37, 1, 105, 100, 14]
 run_bisect_search(L, x_list)
 
@@ -194,14 +195,11 @@ def bisect_search2(L, e):
         mid = (low + high)//2
         if L[mid] == e:
             return True
-        elif L[mid] > e:
+        if L[mid] > e:
             if low == mid: # nothing left to search
                 return False
-            else:
-                return bisect_search_helper(L, e, low, mid -1)
-        else:
-            return bisect_search_helper(L, e, mid + 1, high)
+            return bisect_search_helper(L, e, low, mid -1)
+        return bisect_search_helper(L, e, mid + 1, high)
     if len(L) == 0:
         return False
-    else:
-        return bisect_search_helper(L, e, 0, len(L) - 1)
+    return bisect_search_helper(L, e, 0, len(L) - 1)

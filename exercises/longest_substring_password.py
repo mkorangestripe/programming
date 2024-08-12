@@ -1,7 +1,9 @@
 #!/usr/bin/env python
-# Longest Substring (with the following requirements)
-# Must not contain a number.
-# Contains at least one uppercase letter.
+"""
+Longest Substring (with the following requirements)
+Must not contain a number.
+Contains at least one uppercase letter.
+"""
 
 S1 = 'a0Bu'
 S2 = 'a0HBu'

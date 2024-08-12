@@ -1,7 +1,9 @@
 #!/usr/bin/env python
-# Remove Duplicates from Beginning of Sorted Array
-# Modifying the input array in-place with O(1) extra memory.
-# Duplicate elements may be present after unique elements.
+"""
+Remove Duplicates from Beginning of Sorted Array
+Modifying the input array in-place with O(1) extra memory.
+Duplicate elements may be present after unique elements.
+"""
 
 nums1 = []
 nums2 = [1]
