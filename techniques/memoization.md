@@ -1,9 +1,9 @@
-# Fibonacci
+# Memoization
 
 ### Fibonacci sequence using memoization
-* The first two numbers in the Fibonacci sequence are either 1 and 1, or 0 and 1 depending on the chosen starting point of the sequence.
+* The first two numbers in the Fibonacci sequence are either 0,1, or 1,1 depending on the chosen starting point.
 * Each subsequent number is the sum of the previous two.
-* By using the memo, the order of growth drops from 2^n to n^2 ???
+* By using the memo, the order of growth drops from O(2^n) to O(n) for time complexity.
 
 ```python
 memo0 = {0:0, 1:1}  # 0, 1, 1, 2, 3, 5, 8, 13, 21...
@@ -33,10 +33,9 @@ print(MEMO[FIB_NUM - 1])  # 13 (the 8th number in memo0)
 ```
 
 ### The Golden Ratio
-* Line segment of segments 'a' and 'b' where a+b is to 'a' as 'a' is to 'b'.
-* The ration is about 1.618.
-* The higher the numbers in the Fibonacci sequence, the closer their ratio to the Golden ratio.
-* The Greek letter φ (phi) is used to symbolize the golden ratio.
+* The golden ration, φ (phi), is about 1.618.
+* Line segments 'a' and 'b' where a+b is to 'b' as 'b' is to 'a'
+* The higher the numbers in the Fibonacci sequence, the closer their ratio is to the Golden ratio.
 * If a Fibonacci number is divided by its immediate predecessor in the sequence, the quotient approximates φ.
 * These approximations are alternately lower and higher than φ, and converge on φ as the Fibonacci numbers increase.
 * The golden spiral is a logarithmic spiral whose growth factor is φ, the golden ratio.
