@@ -35,21 +35,21 @@ re_uuid = re.compile("[0-F]{8}-([0-F]{4}-){3}[0-F]{12}", re.I)
 with open(PIPELINE_DEV, encoding='utf-8') as open_pipeline_dev:
     pipeline_dev = json.load(open_pipeline_dev)
 
-def walk_dict(iterobj):
-    """Walk Dictionary"""
+def walk_dict(htable, regex):
+    """Walk dictionary and match regex"""
 
-    if isinstance(iterobj, dict):
-        for k in iterobj:
-            walk_dict(iterobj[k])
-    elif isinstance(iterobj, (list, tuple)):
-        for i in iterobj:
-            walk_dict(i)
+    if isinstance(htable, dict):
+        for k in htable:
+            walk_dict(htable[k], regex)
+    elif isinstance(htable, (list, tuple)):
+        for i in htable:
+            walk_dict(i, regex)
     else:
-        match = re_uuid.match(str(iterobj))
+        match = regex.match(str(htable))
         if bool(match):
-            print(iterobj)
+            print(htable)
 
-walk_dict(pipeline_dev)
+walk_dict(pipeline_dev, re_uuid)
 ```
 
 ```

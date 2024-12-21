@@ -61,6 +61,7 @@ DICE_ROLLS = 1_000_000
 
 def yahtzee(dice_rolls):
     """Monte Carlo simulation"""
+
     yahtzee_cnt = 0.0
     for _simulation in range(dice_rolls):
         d1 = random.randint(1,6)
@@ -70,6 +71,7 @@ def yahtzee(dice_rolls):
         d5 = random.randint(1,6)
         if d1 == d2 == d3 == d4 == d5:
             yahtzee_cnt += 1
+
     return yahtzee_cnt / dice_rolls
 
 print('Yahtzee simulation...')

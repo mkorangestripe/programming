@@ -9,17 +9,18 @@
 memo0 = {0:0, 1:1}  # 0, 1, 1, 2, 3, 5, 8, 13, 21...
 memo1 = {0:1, 1:1}  # 1, 1, 2, 3, 5, 8, 13, 21...
 
-MEMO = memo0
-
 def fibonacci(n, memo):
     """Populate and return the memo dict up to the nth number in the Fibonacci sequence"""
+
     if not n in memo:
-        memo[n] = fibonacci(n-1, MEMO) + fibonacci(n-2, MEMO)
+        memo[n] = fibonacci(n-1, memo) + fibonacci(n-2, memo)
+
     return memo[n]
 ```
 
 ```python
 FIB_NUM = 5
+MEMO = memo0
 
 fibonacci(FIB_NUM, MEMO)
 print(MEMO[FIB_NUM - 1])  # 3 (the 5th number in memo0)
@@ -27,6 +28,7 @@ print(MEMO[FIB_NUM - 1])  # 3 (the 5th number in memo0)
 
 ```python
 FIB_NUM = 8
+MEMO = memo0
 
 fibonacci(FIB_NUM, MEMO)
 print(MEMO[FIB_NUM - 1])  # 13 (the 8th number in memo0)
