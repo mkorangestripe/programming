@@ -42,14 +42,16 @@ Providence = Node('Providence')
 New_York = Node('New York')
 
 edge1 = Edge(Boston, Providence)
-edge2 = Edge(Providence, New_York)
+edge2 = Edge(Boston, New_York)
+edge3 = Edge(Providence, New_York)
 
-for edge in edge1, edge2:
+for edge in edge1, edge2, edge3:
     print(edge)
 ```
 
 ```
 Boston->Providence
+Boston->New York
 Providence->New York
 ```
 
@@ -141,9 +143,20 @@ Denver->New York
 Los Angeles->Boston
 ```
 
+The country graph minus Los Angeles:
+
+```
+                                             Boston
+            Providence-------------------------^-------------------------New York
+Boston----------^------------New York                             Chicago---^
+                    Chicago-----^                          Denver---^-------Phoenix
+             Denver---^---------Phoenix             Phoenix--^---New York
+      Phoenix--^---New York
+```
+
 ```python
 def printPath(path):
-    """Assumes path is a list of nodes"""
+    """Print a path, assume path is a list of nodes"""
 
     result = ''
     for i in range(len(path)):
@@ -155,7 +168,6 @@ def printPath(path):
 ```
 
 ```python
-# Create a path:
 path1 = [Boston, Providence, New_York]
 printPath(path1)
 ```
@@ -191,8 +203,7 @@ def DFS(graph, start, end, path, shortest, toPrint=False):
     for node in graph.children_of(start):  # try all children of the current node
         if node not in path:  # avoid cycles
             if shortest is None or len(path) < len(shortest):
-                newPath = DFS(graph, node, end, path, shortest,
-                              toPrint)
+                newPath = DFS(graph, node, end, path, shortest, toPrint)
                 if newPath != None:
                     shortest = newPath
         elif toPrint:
