@@ -142,7 +142,7 @@ def fastMaxVal(toConsider, avail, memo={}):
         result = memo[(len(toConsider), avail)]
     elif toConsider == [] or avail == 0:  # check whether food item list is empty or remaining calories is 0
         result = (0, ())
-    elif toConsider[0].getCost() > avail:  # check whether food item 0 has more calories than remaining calories
+    elif toConsider[0].getCost() > avail:  # check whether food item[0] calories > remaining calories
         # Explore right branch only:
         result = fastMaxVal(toConsider[1:], avail, memo)
     else:

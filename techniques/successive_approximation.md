@@ -1,3 +1,5 @@
+# Successive Approximation
+
 ```
 These examples both estimate the square root of X.
 With larger numbers like 2500, the number of guesses is less than half when using the bisection method.

@@ -1,4 +1,4 @@
-## Orders of Growth and Time Complexity  
+# Orders of Growth and Time Complexity  
 
 #### Orders of Growth
 
