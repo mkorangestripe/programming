@@ -197,6 +197,7 @@ guesses: 2
 
 ```python
 def bisect_search2(search_list, x):
+
     def bisect_search_helper(search_list, x, low, high):
         """Recursive bisection search to find x in a list"""
         if high == low:
@@ -209,6 +210,7 @@ def bisect_search2(search_list, x):
                 return False
             return bisect_search_helper(search_list, x, low, mid -1)
         return bisect_search_helper(search_list, x, mid + 1, high)
+
     if len(search_list) == 0:
         return False
     return bisect_search_helper(search_list, x, 0, len(search_list) - 1)
