@@ -1,2 +1,1 @@
-## Programming
-Programming techniques and exercises
+### Programming techniques
